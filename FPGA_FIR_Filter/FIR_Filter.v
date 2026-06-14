@@ -1,10 +1,10 @@
 module digital_filter (
-    input  wire        clk_fast,
-    input  wire        rst_n,
-    input  wire [7:0]  data_in,
-    input  wire        valid_in,
-    output reg  [15:0] data_out,
-    output reg         valid_out
+    input  wire         clk_fast ,
+    input  wire         rst_n    ,
+    input  wire [7:0 ]  data_in  ,
+    input  wire         valid_in ,
+    output reg  [15:0]  data_out ,
+    output reg          valid_out
 );
 
     // shift register
