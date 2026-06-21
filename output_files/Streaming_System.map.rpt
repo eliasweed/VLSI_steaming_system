@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Streaming_System
-Mon Jun 15 12:30:00 2026
+Sun Jun 21 22:43:51 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -37,10 +37,10 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Mon Jun 15 12:30:00 2026               ;
+; Analysis & Synthesis Status        ; Failed - Sun Jun 21 22:43:51 2026               ;
 ; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                      ; Streaming_System                                ;
-; Top-level Entity Name              ; Streaming_System                                ;
+; Top-level Entity Name              ; Async_FIFO                                      ;
 ; Family                             ; Cyclone IV E                                    ;
 ; Total logic elements               ; N/A until Partition Merge                       ;
 ;     Total combinational functions  ; N/A until Partition Merge                       ;
@@ -60,8 +60,9 @@ on the Quartus Prime software download page.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; Streaming_System   ; Streaming_System   ;
+; Top-level entity name                                            ; Async_FIFO         ; Streaming_System   ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Verilog Show LMF Mapping Messages                                ; Off                ;                    ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
 ; Enable compact report table                                      ; Off                ; Off                ;
@@ -145,8 +146,8 @@ on the Quartus Prime software download page.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 6           ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -162,15 +163,19 @@ on the Quartus Prime software download page.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Mon Jun 15 12:29:43 2026
+    Info: Processing started: Sun Jun 21 22:43:46 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Streaming_System -c Streaming_System
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
-Error (12007): Top-level design entity "Streaming_System" is undefined
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file fpga_fifo/async_fifo.v
+    Info (12023): Found entity 1: async_fifo File: C:/Git/Projects/VLSI_steaming_system/FPGA_FIFO/Async_FIFO.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file fpga_clk_div/baud_clk_divider_50.v
+    Info (12023): Found entity 1: Baud_Clk_Divider_50 File: C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/Baud_Clk_Divider_50.v Line: 27
+Error (12007): Top-level design entity "Async_FIFO" is undefined
 Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 4731 megabytes
-    Error: Processing ended: Mon Jun 15 12:30:00 2026
-    Error: Elapsed time: 00:00:17
-    Error: Total CPU time (on all processors): 00:00:14
+    Error: Peak virtual memory: 2101883 megabytes
+    Error: Processing ended: Sun Jun 21 22:43:51 2026
+    Error: Elapsed time: 00:00:05
+    Error: Total CPU time (on all processors): 00:00:12
 
 
