@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sun Jun 21 23:00:58 2026
+Analysis & Synthesis Status : Successful - Sun Jun 21 23:04:41 2026
 Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 Revision Name : Streaming_System
-Top-level Entity Name : UART_Tx_16bit
+Top-level Entity Name : FIR_Filter
 Family : Cyclone IV E
-Total logic elements : 68
-    Total combinational functions : 65
-    Dedicated logic registers : 41
-Total registers : 41
-Total pins : 22
+Total logic elements : 60
+    Total combinational functions : 28
+    Dedicated logic registers : 40
+Total registers : 40
+Total pins : 18
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
