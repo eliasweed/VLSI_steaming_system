@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Streaming_System
-Sun Jun 21 22:43:51 2026
+Sun Jun 21 23:00:58 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -10,7 +10,19 @@ Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |UART_Tx_16bit|rState
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |UART_Tx_16bit
+ 14. Parameter Settings for User Entity Instance: Baud_Clk_Divider_50:u_Baud_Clk_Divider_50
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -37,20 +49,20 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Sun Jun 21 22:43:51 2026               ;
+; Analysis & Synthesis Status        ; Successful - Sun Jun 21 23:00:58 2026           ;
 ; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                      ; Streaming_System                                ;
-; Top-level Entity Name              ; Async_FIFO                                      ;
+; Top-level Entity Name              ; UART_Tx_16bit                                   ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; N/A until Partition Merge                       ;
-;     Total combinational functions  ; N/A until Partition Merge                       ;
-;     Dedicated logic registers      ; N/A until Partition Merge                       ;
-; Total registers                    ; N/A until Partition Merge                       ;
-; Total pins                         ; N/A until Partition Merge                       ;
-; Total virtual pins                 ; N/A until Partition Merge                       ;
-; Total memory bits                  ; N/A until Partition Merge                       ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                       ;
-; Total PLLs                         ; N/A until Partition Merge                       ;
+; Total logic elements               ; 68                                              ;
+;     Total combinational functions  ; 65                                              ;
+;     Dedicated logic registers      ; 41                                              ;
+; Total registers                    ; 41                                              ;
+; Total pins                         ; 22                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
 +------------------------------------+-------------------------------------------------+
 
 
@@ -60,7 +72,7 @@ on the Quartus Prime software download page.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; Async_FIFO         ; Streaming_System   ;
+; Top-level entity name                                            ; UART_Tx_16bit      ; Streaming_System   ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Verilog Show LMF Mapping Messages                                ; Off                ;                    ;
 ; Use smart compilation                                            ; Off                ; Off                ;
@@ -150,11 +162,180 @@ on the Quartus Prime software download page.
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.0%      ;
 +----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                            ;
++------------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path   ; Used in Netlist ; File Type              ; File Name with Absolute Path                                            ; Library ;
++------------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
+; FPGA_UART/UART_Tx_16bit.v          ; yes             ; User Verilog HDL File  ; C:/Git/Projects/VLSI_steaming_system/FPGA_UART/UART_Tx_16bit.v          ;         ;
+; FPGA_Clk_Div/Baud_Clk_Divider_50.v ; yes             ; User Verilog HDL File  ; C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/Baud_Clk_Divider_50.v ;         ;
++------------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 68             ;
+;                                             ;                ;
+; Total combinational functions               ; 65             ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 29             ;
+;     -- 3 input functions                    ; 6              ;
+;     -- <=2 input functions                  ; 30             ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 51             ;
+;     -- arithmetic mode                      ; 14             ;
+;                                             ;                ;
+; Total registers                             ; 41             ;
+;     -- Dedicated logic registers            ; 41             ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 22             ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; iSlowClk~input ;
+; Maximum fan-out                             ; 41             ;
+; Total fan-out                               ; 366            ;
+; Average fan-out                             ; 2.44           ;
++---------------------------------------------+----------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                       ;
++------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                      ; Entity Name         ; Library Name ;
++------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------+---------------------+--------------+
+; |UART_Tx_16bit                                 ; 65 (43)             ; 41 (30)                   ; 0           ; 0            ; 0       ; 0         ; 22   ; 0            ; |UART_Tx_16bit                                           ; UART_Tx_16bit       ; work         ;
+;    |Baud_Clk_Divider_50:u_Baud_Clk_Divider_50| ; 22 (22)             ; 11 (11)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |UART_Tx_16bit|Baud_Clk_Divider_50:u_Baud_Clk_Divider_50 ; Baud_Clk_Divider_50 ; work         ;
++------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------+
+; State Machine - |UART_Tx_16bit|rState                                                ;
++-----------------+----------------+----------------+----------------+-----------------+
+; Name            ; rState.ST_IDLE ; rState.ST_STOP ; rState.ST_DATA ; rState.ST_START ;
++-----------------+----------------+----------------+----------------+-----------------+
+; rState.ST_IDLE  ; 0              ; 0              ; 0              ; 0               ;
+; rState.ST_START ; 1              ; 0              ; 0              ; 1               ;
+; rState.ST_DATA  ; 1              ; 0              ; 1              ; 0               ;
+; rState.ST_STOP  ; 1              ; 1              ; 0              ; 0               ;
++-----------------+----------------+----------------+----------------+-----------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                          ;
++----------------------------------------------------+----------------------------------------+
+; Register name                                      ; Reason for Removal                     ;
++----------------------------------------------------+----------------------------------------+
+; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[10] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1              ;                                        ;
++----------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 41    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 41    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 28    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------+
+; Inverted Register Statistics                                ;
++---------------------------------------------------+---------+
+; Inverted Register                                 ; Fan out ;
++---------------------------------------------------+---------+
+; oSerialTx~reg0                                    ; 1       ;
+; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; 1       ;
+; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; 1       ;
+; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; 1       ;
+; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; 1       ;
+; Total number of inverted registers = 5            ;         ;
++---------------------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 4:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |UART_Tx_16bit|rTxShift[3] ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |UART_Tx_16bit|rState      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |UART_Tx_16bit ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; BAUD_HALF_DIV  ; 520   ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Baud_Clk_Divider_50:u_Baud_Clk_Divider_50 ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; HALF_DIV       ; 520   ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 22                          ;
+; cycloneiii_ff         ; 41                          ;
+;     CLR               ; 13                          ;
+;     ENA CLR           ; 28                          ;
+; cycloneiii_lcell_comb ; 66                          ;
+;     arith             ; 14                          ;
+;         2 data inputs ; 14                          ;
+;     normal            ; 52                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 13                          ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 29                          ;
+;                       ;                             ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 1.90                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -163,19 +344,33 @@ on the Quartus Prime software download page.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Sun Jun 21 22:43:46 2026
+    Info: Processing started: Sun Jun 21 23:00:53 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Streaming_System -c Streaming_System
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file fpga_uart/uart_tx_16bit.v
+    Info (12023): Found entity 1: UART_Tx_16bit File: C:/Git/Projects/VLSI_steaming_system/FPGA_UART/UART_Tx_16bit.v Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file fpga_fifo/async_fifo.v
-    Info (12023): Found entity 1: async_fifo File: C:/Git/Projects/VLSI_steaming_system/FPGA_FIFO/Async_FIFO.v Line: 1
+    Info (12023): Found entity 1: Async_FIFO File: C:/Git/Projects/VLSI_steaming_system/FPGA_FIFO/Async_FIFO.v Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file fpga_clk_div/baud_clk_divider_50.v
     Info (12023): Found entity 1: Baud_Clk_Divider_50 File: C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/Baud_Clk_Divider_50.v Line: 27
-Error (12007): Top-level design entity "Async_FIFO" is undefined
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 2101883 megabytes
-    Error: Processing ended: Sun Jun 21 22:43:51 2026
-    Error: Elapsed time: 00:00:05
-    Error: Total CPU time (on all processors): 00:00:12
+Info (12127): Elaborating entity "UART_Tx_16bit" for the top level hierarchy
+Info (12128): Elaborating entity "Baud_Clk_Divider_50" for hierarchy "Baud_Clk_Divider_50:u_Baud_Clk_Divider_50" File: C:/Git/Projects/VLSI_steaming_system/FPGA_UART/UART_Tx_16bit.v Line: 53
+Warning (10230): Verilog HDL assignment warning at Baud_Clk_Divider_50.v(84): truncated value with size 32 to match size of target (11) File: C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/Baud_Clk_Divider_50.v Line: 84
+Warning (10230): Verilog HDL assignment warning at Baud_Clk_Divider_50.v(89): truncated value with size 32 to match size of target (11) File: C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/Baud_Clk_Divider_50.v Line: 89
+Info (13000): Registers with preset signals will power-up high File: C:/Git/Projects/VLSI_steaming_system/FPGA_UART/UART_Tx_16bit.v Line: 35
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 90 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 19 input pins
+    Info (21059): Implemented 3 output pins
+    Info (21061): Implemented 68 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 2101980 megabytes
+    Info: Processing ended: Sun Jun 21 23:00:58 2026
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:12
 
 
