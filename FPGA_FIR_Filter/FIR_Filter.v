@@ -1,53 +1,80 @@
-module digital_filter (
-    input  wire         clk_fast ,
-    input  wire         rst_n    ,
-    input  wire [7:0 ]  data_in  ,
-    input  wire         valid_in ,
-    output reg  [15:0]  data_out ,
-    output reg          valid_out
+//============================================================
+// Module Name : FIR_Filter
+// Description : 4-Tap Moving Average FIR Filter
+//
+// Function:
+//   - Implements a shift register to hold the last 4 data samples.
+//   - Calculates the average of the 4 samples in a single clock cycle.
+//   - Fully pipelined and synchronous.
+//
+// Example:
+//   If iData is an 8-bit stream, the filter keeps a 32-bit history
+//   window (4 x 8-bit) and outputs the moving average, preventing
+//   overflow and avoiding complex multi-cycle memory accesses.
+//============================================================
+
+module FIR_Filter
+#(
+    parameter DataWidth = 8 // Width of the input and output data bus
+)
+(
+    input  wire                 iClk,   // Main processing clock (Fast Clock)
+    input  wire                 iRstN,  // Asynchronous active-low reset
+    input  wire [DataWidth-1:0] iData,  // Streaming input data sample
+    output reg  [DataWidth-1:0] oData   // Averaged output data
 );
 
-    // shift register
-    reg [7:0] x [0:3];
+    //--------------------------------------------------------
+    // Shift Register (Sliding Window)
+    //
+    // Holds the 4 most recent data samples in a continuous
+    // streaming pipeline.
+    //--------------------------------------------------------
+    reg [DataWidth-1:0] rReg0;
+    reg [DataWidth-1:0] rReg1;
+    reg [DataWidth-1:0] rReg2;
+    reg [DataWidth-1:0] rReg3;
 
-    // zero-padded wires for the next state calculation
-    wire [15:0] next_x0 = {8'h00, data_in}; //create 16 bit vector that starts with 8 zeros
-    wire [15:0] next_x1 = {8'h00, x[0]};
-    wire [15:0] next_x2 = {8'h00, x[1]};
-    wire [15:0] next_x3 = {8'h00, x[2]};
+    //--------------------------------------------------------
+    // Combinatorial Math (Adder Tree)
+    //
+    // Sums all 4 registers in parallel. 
+    // The width is extended by 2 bits (DataWidth+1 : 0) to 
+    // safely hold the maximum possible sum without overflow.
+    //--------------------------------------------------------
+    wire [DataWidth+1:0] wSum;
+    
+    assign wSum = rReg0 + rReg1 + rReg2 + rReg3;
 
-    // hardware-efficient multiplication using bit-shifts
-    wire [15:0] mult_0 = next_x0;                                     // x[0] * 1
-    wire [15:0] mult_1 = {next_x1[14:0], 1'b0};                       // x[1] * 2 (shift left by 1)
-    wire [15:0] mult_2 = {next_x2[14:0], 1'b0} + next_x2;             // x[2] * 3 (x[2]*2 + x[2]*1)
-    wire [15:0] mult_3 = {next_x3[13:0], 2'b0};                       // x[3] * 4 (shift left by 2)
-
-    // combinatorial sum
-    wire [15:0] sum_calc = mult_0 + mult_1 + mult_2 + mult_3;
-
-    always @(posedge clk_fast or negedge rst_n) begin
-        if (!rst_n) begin
-            x[0]      <= 8'd0;
-            x[1]      <= 8'd0;
-            x[2]      <= 8'd0;
-            x[3]      <= 8'd0;
-            data_out  <= 16'd0;
-            valid_out <= 1'b0;
-        end else begin
-            if (valid_in) begin
-                // shift incoming data forward
-                x[0] <= data_in;
-                x[1] <= x[0];
-                x[2] <= x[1];
-                x[3] <= x[2];
-
-                // pipeline stage: capture the calculated combinatorial sum
-                data_out  <= sum_calc;
-                valid_out <= 1'b1;
-            end else begin
-                // assert valid_out to low when data is not valid
-                valid_out <= 1'b0;
-            end
+    //--------------------------------------------------------
+    // Shift and Calculate Logic
+    //
+    // Reset:
+    //   - Clears all registers and output to zero.
+    //
+    // Normal operation:
+    //   - Shifts data down the pipeline.
+    //   - Samples the divided sum (average) in the same clock edge.
+    //   - Division by 4 is optimized by discarding the 2 LSBs
+    //     (taking bits [DataWidth+1 : 2] from wSum).
+    //--------------------------------------------------------
+    always @(posedge iClk or negedge iRstN) begin
+        if (!iRstN) begin
+            rReg0 <= 0;
+            rReg1 <= 0;
+            rReg2 <= 0;
+            rReg3 <= 0;
+            oData <= 0;
+        end
+        else begin
+            // Shift the data stream
+            rReg0 <= iData;
+            rReg1 <= rReg0;
+            rReg2 <= rReg1;
+            rReg3 <= rReg2;
+            
+            // Calculate and register the average (Sum / 4)
+            oData <= wSum[DataWidth+1:2];
         end
     end
 
