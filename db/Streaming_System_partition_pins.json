@@ -4,75 +4,23 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "oData[0]",
+					"name" : "oClkEn",
 					"strict" : false
 				},
 				{
-					"name" : "oData[1]",
+					"name" : "oGatedFastClk",
 					"strict" : false
 				},
 				{
-					"name" : "oData[2]",
+					"name" : "iInValid",
 					"strict" : false
 				},
 				{
-					"name" : "oData[3]",
+					"name" : "iFastClk",
 					"strict" : false
 				},
 				{
-					"name" : "oData[4]",
-					"strict" : false
-				},
-				{
-					"name" : "oData[5]",
-					"strict" : false
-				},
-				{
-					"name" : "oData[6]",
-					"strict" : false
-				},
-				{
-					"name" : "oData[7]",
-					"strict" : false
-				},
-				{
-					"name" : "iClk",
-					"strict" : false
-				},
-				{
-					"name" : "iRstN",
-					"strict" : false
-				},
-				{
-					"name" : "iData[2]",
-					"strict" : false
-				},
-				{
-					"name" : "iData[1]",
-					"strict" : false
-				},
-				{
-					"name" : "iData[0]",
-					"strict" : false
-				},
-				{
-					"name" : "iData[3]",
-					"strict" : false
-				},
-				{
-					"name" : "iData[4]",
-					"strict" : false
-				},
-				{
-					"name" : "iData[5]",
-					"strict" : false
-				},
-				{
-					"name" : "iData[6]",
-					"strict" : false
-				},
-				{
-					"name" : "iData[7]",
+					"name" : "iResetN",
 					"strict" : false
 				}
 			]
