@@ -3,35 +3,34 @@
 // Module      : Power_Controller
 // Description : Dynamic power controller for fast clock domain
 //
-// Function:
-//   - Monitors iInValid from the FIR input stream.
-//   - If iInValid stays low for IDLE_TIMEOUT consecutive
-//     iFastClk cycles, oClkEn goes low.
-//   - When iInValid becomes high again, oClkEn returns high.
-//   - oClkEn controls ALTCLKCTRL.
+// Fix:
+//   oClkEn is updated on the falling edge of iFastClk.
+//   This makes the clock-enable stable before the next rising edge,
+//   preventing an extra leaked gated-clock pulse.
 //
-// Important:
-//   - The controller itself must stay on iFastClk.
-//   - Only the FIR clock should be gated.
-//   - Do NOT implement clock gating using:
-//         assign gated_clk = clk & enable;
+// Behavior:
+//   - If iInValid = 1:
+//       counter reloads and clock is enabled.
+//   - If iInValid = 0 for IDLE_TIMEOUT cycles:
+//       oClkEn goes low before the next rising clock edge.
 //============================================================
 
 module Power_Controller
 #(
-    parameter integer IDLE_TIMEOUT = 10
+    parameter integer IDLE_TIMEOUT = 10,
+    parameter integer SIM_MODE     = 0
 )
 (
-    input  wire iFastClk,       // Fast clock domain, for example 100 MHz
-    input  wire iResetN,        // Asynchronous active-low reset
-    input  wire iInValid,       // Activity indication from FIR input stream
+    input  wire iFastClk,
+    input  wire iResetN,
+    input  wire iInValid,
 
-    output reg  oClkEn,         // Clock enable control signal
-    output wire oGatedFastClk   // Gated fast clock output for FIR
+    output reg  oClkEn,
+    output wire oGatedFastClk
 );
 
     //--------------------------------------------------------
-    // Verilog-2001 compatible clog2 function
+    // Verilog-2001 compatible clog2
     //--------------------------------------------------------
     function integer clog2;
         input integer value;
@@ -43,66 +42,99 @@ module Power_Controller
         end
     endfunction
 
-    //--------------------------------------------------------
-    // Counter width
-    //--------------------------------------------------------
     localparam integer CNT_W = (IDLE_TIMEOUT <= 2) ? 1 : clog2(IDLE_TIMEOUT + 1);
 
-    //--------------------------------------------------------
-    // Reload value for idle counter
-    //--------------------------------------------------------
     localparam [CNT_W-1:0] IDLE_RELOAD = IDLE_TIMEOUT[CNT_W-1:0];
 
-    //--------------------------------------------------------
-    // Idle down-counter
-    //--------------------------------------------------------
     reg [CNT_W-1:0] rIdleCnt;
 
     //--------------------------------------------------------
-    // Power controller logic
+    // Internal request signal.
     //
-    // Behavior:
-    //   iInValid = 1:
-    //      reload counter and enable clock
+    // This signal is generated on the rising edge.
+    // It says whether the clock should remain enabled.
+    //--------------------------------------------------------
+    reg rClkEnReq;
+
+    //--------------------------------------------------------
+    // Activity / idle counter
     //
-    //   iInValid = 0:
-    //      count down
-    //      when the counter reaches 1, disable clock
+    // This block counts the number of idle cycles.
     //--------------------------------------------------------
     always @(posedge iFastClk or negedge iResetN) begin
         if (!iResetN) begin
-            rIdleCnt <= IDLE_RELOAD;
-            oClkEn   <= 1'b1;
+            rIdleCnt  <= IDLE_RELOAD;
+            rClkEnReq <= 1'b1;
         end
         else begin
             if (iInValid) begin
-                rIdleCnt <= IDLE_RELOAD;
-                oClkEn   <= 1'b1;
+                rIdleCnt  <= IDLE_RELOAD;
+                rClkEnReq <= 1'b1;
             end
             else begin
                 if (rIdleCnt != {CNT_W{1'b0}}) begin
                     rIdleCnt <= rIdleCnt - 1'b1;
 
+                    //------------------------------------------------
+                    // When old counter value is 1, this is the
+                    // timeout-completing clock edge.
+                    //------------------------------------------------
                     if (rIdleCnt == {{(CNT_W-1){1'b0}}, 1'b1}) begin
-                        oClkEn <= 1'b0;
+                        rClkEnReq <= 1'b0;
                     end
+                end
+                else begin
+                    rClkEnReq <= 1'b0;
                 end
             end
         end
     end
 
     //--------------------------------------------------------
-    // Intel / Altera ALTCLKCTRL primitive
+    // Clock-gate enable register
     //
-    // This is the correct FPGA clock-gating method.
-    // The fast clock and oClkEn are connected to ALTCLKCTRL.
+    // IMPORTANT:
+    // oClkEn is updated on negedge, not posedge.
+    //
+    // Reason:
+    // If oClkEn is updated on posedge, the same rising edge is
+    // already passed through the clock gate.
+    //
+    // Updating on negedge makes oClkEn stable while iFastClk is low,
+    // before the next rising edge arrives.
     //--------------------------------------------------------
-    altclkctrl u_altclkctrl
-    (
-        .inclk     ({3'b000, iFastClk}),
-        .clkselect (2'b00),
-        .ena       (oClkEn),
-        .outclk    (oGatedFastClk)
-    );
+    always @(negedge iFastClk or negedge iResetN) begin
+        if (!iResetN) begin
+            oClkEn <= 1'b1;
+        end
+        else begin
+            oClkEn <= rClkEnReq;
+        end
+    end
+
+    //--------------------------------------------------------
+    // Clock gating implementation
+    //--------------------------------------------------------
+    generate
+        if (SIM_MODE != 0) begin : g_SIM_MODEL
+            //------------------------------------------------
+            // Simulation model only.
+            // In synthesis, use ALTCLKCTRL.
+            //------------------------------------------------
+            assign oGatedFastClk = oClkEn ? iFastClk : 1'b0;
+        end
+        else begin : g_ALTCLKCTRL
+            //------------------------------------------------
+            // Intel / Altera clock-control primitive.
+            //------------------------------------------------
+            altclkctrl u_altclkctrl
+            (
+                .inclk     ({3'b000, iFastClk}),
+                .clkselect (2'b00),
+                .ena       (oClkEn),
+                .outclk    (oGatedFastClk)
+            );
+        end
+    endgenerate
 
 endmodule

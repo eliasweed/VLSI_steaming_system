@@ -5,13 +5,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	Baud_Clk_Divider_50
 
-} {} {}} C:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/UART_Tx_16bit.v {1 {vlog -work work -stats=none C:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/UART_Tx_16bit.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module UART_Tx_16bit
-
-Top level modules:
-	UART_Tx_16bit
-
 } {} {}} C:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/TB_UART_Tx_16bit_With_Divider.v {1 {vlog -work work -stats=none {C:\Git\Projects\VLSI_steaming_system\FPGA_UART\rtl\TB_UART_Tx_16bit_With_Divider.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module TB_UART_Tx_16bit_With_Divider

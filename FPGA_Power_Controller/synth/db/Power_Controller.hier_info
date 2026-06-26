@@ -1,0 +1,37 @@
+|Power_Controller
+iFastClk => iFastClk.IN1
+iResetN => rClkEnReq.PRESET
+iResetN => rIdleCnt[0].ACLR
+iResetN => rIdleCnt[1].PRESET
+iResetN => rIdleCnt[2].ACLR
+iResetN => rIdleCnt[3].PRESET
+iResetN => oClkEn~reg0.PRESET
+iInValid => rIdleCnt.OUTPUTSELECT
+iInValid => rIdleCnt.OUTPUTSELECT
+iInValid => rIdleCnt.OUTPUTSELECT
+iInValid => rIdleCnt.OUTPUTSELECT
+iInValid => rClkEnReq.OUTPUTSELECT
+oClkEn <= oClkEn.DB_MAX_OUTPUT_PORT_TYPE
+oGatedFastClk <= altclkctrl:g_ALTCLKCTRL.u_altclkctrl.outclk
+
+
+|Power_Controller|altclkctrl:g_ALTCLKCTRL.u_altclkctrl
+clkselect[0] => ~NO_FANOUT~
+clkselect[1] => ~NO_FANOUT~
+ena => altclkctrl_2pc:auto_generated.ena
+inclk[0] => altclkctrl_2pc:auto_generated.inclk[0]
+inclk[1] => altclkctrl_2pc:auto_generated.inclk[1]
+inclk[2] => altclkctrl_2pc:auto_generated.inclk[2]
+inclk[3] => altclkctrl_2pc:auto_generated.inclk[3]
+outclk <= altclkctrl_2pc:auto_generated.outclk
+
+
+|Power_Controller|altclkctrl:g_ALTCLKCTRL.u_altclkctrl|altclkctrl_2pc:auto_generated
+ena => clkctrl1.ENA
+inclk[0] => clkctrl1.INCLK
+inclk[1] => clkctrl1.INCLK1
+inclk[2] => clkctrl1.INCLK2
+inclk[3] => clkctrl1.INCLK3
+outclk <= clkctrl1.CLK
+
+

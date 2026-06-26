@@ -33,7 +33,7 @@ module TB_Power_Controller;
     Power_Controller
     #(
         .IDLE_TIMEOUT (IDLE_TIMEOUT_TB),
-        .SIM_MODE     (1)
+        .SIM_MODE     (0)
     )
     dut
     (

@@ -1,0 +1,15 @@
+C:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/Power_Controller.v {1 {vlog -work work -stats=none C:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/Power_Controller.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Power_Controller
+
+Top level modules:
+	Power_Controller
+
+} {} {}} C:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/TB_Power_Controller.v {1 {vlog -work work -stats=none C:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/TB_Power_Controller.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module TB_Power_Controller
+
+Top level modules:
+	TB_Power_Controller
+
+} {} {}}

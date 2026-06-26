@@ -1,0 +1,29 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "oClkEn",
+					"strict" : false
+				},
+				{
+					"name" : "oGatedFastClk",
+					"strict" : false
+				},
+				{
+					"name" : "iFastClk",
+					"strict" : false
+				},
+				{
+					"name" : "iResetN",
+					"strict" : false
+				},
+				{
+					"name" : "iInValid",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

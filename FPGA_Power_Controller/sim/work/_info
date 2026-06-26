@@ -1,0 +1,59 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/20.1
+vPower_Controller
+Z0 !s110 1782495625
+!i10b 1
+!s100 5Yl?Qi;ggeTlSKZoIXIFH2
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IDJSU5JWmQjGIc_Ne6:9V<1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/sim
+w1782493659
+8C:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/Power_Controller.v
+FC:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/Power_Controller.v
+!i122 6
+L0 18 123
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1782495625.000000
+!s107 C:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/Power_Controller.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/Power_Controller.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+n@power_@controller
+vTB_Power_Controller
+R0
+!i10b 1
+!s100 Ql>BG8SgzEb=lDQ^c5nM=1
+R1
+I[b;SWX55C`9HkD_;=l?=92
+R2
+R3
+w1782495620
+8C:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/TB_Power_Controller.v
+FC:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/TB_Power_Controller.v
+!i122 7
+L0 16 146
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/TB_Power_Controller.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/TB_Power_Controller.v|
+!i113 1
+R6
+R7
+n@t@b_@power_@controller
