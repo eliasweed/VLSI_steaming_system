@@ -1,0 +1,15 @@
+C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v {1 {vlog -work work -stats=none C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Baud_Clk_Divider_50
+
+Top level modules:
+	Baud_Clk_Divider_50
+
+} {} {}} C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/TB_Baud_Clk_Divider_50.v {1 {vlog -work work -stats=none C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/TB_Baud_Clk_Divider_50.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module TB_Baud_Clk_Divider_50
+
+Top level modules:
+	TB_Baud_Clk_Divider_50
+
+} {} {}}

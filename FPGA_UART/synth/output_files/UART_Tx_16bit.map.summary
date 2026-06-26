@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Jun 26 15:39:33 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : UART_Tx_16bit
+Top-level Entity Name : UART_Tx_16bit
+Family : Cyclone IV E
+Total logic elements : 68
+    Total combinational functions : 65
+    Dedicated logic registers : 41
+Total registers : 41
+Total pins : 22
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

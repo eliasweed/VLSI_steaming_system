@@ -1,0 +1,1236 @@
+Timing Analyzer report for UART_Tx_16bit
+Fri Jun 26 15:39:49 2026
+Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Slow 1200mV 85C Model Fmax Summary
+  7. Timing Closure Recommendations
+  8. Slow 1200mV 85C Model Setup Summary
+  9. Slow 1200mV 85C Model Hold Summary
+ 10. Slow 1200mV 85C Model Recovery Summary
+ 11. Slow 1200mV 85C Model Removal Summary
+ 12. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 13. Slow 1200mV 85C Model Setup: 'iSlowClk'
+ 14. Slow 1200mV 85C Model Hold: 'iSlowClk'
+ 15. Slow 1200mV 85C Model Metastability Summary
+ 16. Slow 1200mV 0C Model Fmax Summary
+ 17. Slow 1200mV 0C Model Setup Summary
+ 18. Slow 1200mV 0C Model Hold Summary
+ 19. Slow 1200mV 0C Model Recovery Summary
+ 20. Slow 1200mV 0C Model Removal Summary
+ 21. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 22. Slow 1200mV 0C Model Setup: 'iSlowClk'
+ 23. Slow 1200mV 0C Model Hold: 'iSlowClk'
+ 24. Slow 1200mV 0C Model Metastability Summary
+ 25. Fast 1200mV 0C Model Setup Summary
+ 26. Fast 1200mV 0C Model Hold Summary
+ 27. Fast 1200mV 0C Model Recovery Summary
+ 28. Fast 1200mV 0C Model Removal Summary
+ 29. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 30. Fast 1200mV 0C Model Setup: 'iSlowClk'
+ 31. Fast 1200mV 0C Model Hold: 'iSlowClk'
+ 32. Fast 1200mV 0C Model Metastability Summary
+ 33. Multicorner Timing Analysis Summary
+ 34. Board Trace Model Assignments
+ 35. Input Transition Times
+ 36. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 37. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 38. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 39. Setup Transfers
+ 40. Hold Transfers
+ 41. Report TCCS
+ 42. Report RSKM
+ 43. Unconstrained Paths Summary
+ 44. Clock Status Summary
+ 45. Unconstrained Input Ports
+ 46. Unconstrained Output Ports
+ 47. Unconstrained Input Ports
+ 48. Unconstrained Output Ports
+ 49. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++---------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                         ;
++-----------------------+---------------------------------------------------------+
+; Quartus Prime Version ; Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                                  ;
+; Revision Name         ; UART_Tx_16bit                                           ;
+; Device Family         ; Cyclone IV E                                            ;
+; Device Name           ; EP4CE115F29C7                                           ;
+; Timing Models         ; Final                                                   ;
+; Delay Model           ; Combined                                                ;
+; Rise/Fall Delays      ; Enabled                                                 ;
++-----------------------+---------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.02        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.3%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------+
+; SDC File List                                         ;
++-------------------+--------+--------------------------+
+; SDC File Path     ; Status ; Read at                  ;
++-------------------+--------+--------------------------+
+; UART_Tx_16bit.sdc ; OK     ; Fri Jun 26 15:39:48 2026 ;
++-------------------+--------+--------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                ;
++------------+------+---------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock Name ; Type ; Period  ; Frequency ; Rise  ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
++------------+------+---------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; iSlowClk   ; Base ; 100.000 ; 10.0 MHz  ; 0.000 ; 50.000 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { iSlowClk } ;
++------------+------+---------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                        ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 301.66 MHz ; 250.0 MHz       ; iSlowClk   ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++----------+--------+-----------------+
+; Clock    ; Slack  ; End Point TNS   ;
++----------+--------+-----------------+
+; iSlowClk ; 96.685 ; 0.000           ;
++----------+--------+-----------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++----------+-------+-----------------+
+; Clock    ; Slack ; End Point TNS   ;
++----------+-------+-----------------+
+; iSlowClk ; 0.401 ; 0.000           ;
++----------+-------+-----------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++----------+--------+-------------------------------+
+; Clock    ; Slack  ; End Point TNS                 ;
++----------+--------+-------------------------------+
+; iSlowClk ; 49.756 ; 0.000                         ;
++----------+--------+-------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'iSlowClk'                                                                                                                                              ;
++--------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                         ; To Node                                           ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 96.685 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 3.232      ;
+; 96.687 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 3.230      ;
+; 96.768 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 3.149      ;
+; 96.770 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 3.147      ;
+; 96.778 ; rBaudClkD                                         ; rTxShift[0]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.089     ; 3.131      ;
+; 96.778 ; rBaudClkD                                         ; rTxShift[1]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.089     ; 3.131      ;
+; 96.778 ; rBaudClkD                                         ; rTxShift[2]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.089     ; 3.131      ;
+; 96.778 ; rBaudClkD                                         ; rTxShift[3]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.089     ; 3.131      ;
+; 96.778 ; rBaudClkD                                         ; rTxShift[4]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.089     ; 3.131      ;
+; 96.778 ; rBaudClkD                                         ; rTxShift[5]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.089     ; 3.131      ;
+; 96.778 ; rBaudClkD                                         ; rTxShift[6]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.089     ; 3.131      ;
+; 96.778 ; rBaudClkD                                         ; rTxShift[7]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.089     ; 3.131      ;
+; 96.778 ; rBaudClkD                                         ; rTxShift[8]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.089     ; 3.131      ;
+; 96.778 ; rBaudClkD                                         ; rTxShift[9]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.089     ; 3.131      ;
+; 96.778 ; rBaudClkD                                         ; rTxShift[10]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.089     ; 3.131      ;
+; 96.778 ; rBaudClkD                                         ; rTxShift[11]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.089     ; 3.131      ;
+; 96.778 ; rBaudClkD                                         ; rTxShift[12]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.089     ; 3.131      ;
+; 96.778 ; rBaudClkD                                         ; rTxShift[13]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.089     ; 3.131      ;
+; 96.778 ; rBaudClkD                                         ; rTxShift[14]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.089     ; 3.131      ;
+; 96.798 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.080     ; 3.120      ;
+; 96.800 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.080     ; 3.118      ;
+; 96.836 ; rBitCnt[2]                                        ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 3.081      ;
+; 96.836 ; rBitCnt[2]                                        ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 3.081      ;
+; 96.836 ; rBitCnt[2]                                        ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 3.081      ;
+; 96.836 ; rBitCnt[2]                                        ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 3.081      ;
+; 96.838 ; rBitCnt[1]                                        ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 3.079      ;
+; 96.838 ; rBitCnt[1]                                        ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 3.079      ;
+; 96.838 ; rBitCnt[1]                                        ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 3.079      ;
+; 96.838 ; rBitCnt[1]                                        ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 3.079      ;
+; 96.872 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 3.045      ;
+; 96.874 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 3.043      ;
+; 96.901 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[0]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.087     ; 3.010      ;
+; 96.901 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[1]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.087     ; 3.010      ;
+; 96.901 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[2]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.087     ; 3.010      ;
+; 96.901 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[3]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.087     ; 3.010      ;
+; 96.901 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[4]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.087     ; 3.010      ;
+; 96.901 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[5]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.087     ; 3.010      ;
+; 96.901 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[6]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.087     ; 3.010      ;
+; 96.901 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[7]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.087     ; 3.010      ;
+; 96.901 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[8]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.087     ; 3.010      ;
+; 96.901 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[9]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.087     ; 3.010      ;
+; 96.901 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[10]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.087     ; 3.010      ;
+; 96.901 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[11]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.087     ; 3.010      ;
+; 96.901 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[12]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.087     ; 3.010      ;
+; 96.901 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[13]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.087     ; 3.010      ;
+; 96.901 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[14]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.087     ; 3.010      ;
+; 96.932 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.080     ; 2.986      ;
+; 96.934 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.080     ; 2.984      ;
+; 96.963 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.954      ;
+; 96.964 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.953      ;
+; 96.969 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.948      ;
+; 96.973 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.944      ;
+; 96.989 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.928      ;
+; 96.991 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.926      ;
+; 97.009 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.082     ; 2.907      ;
+; 97.037 ; rBitCnt[3]                                        ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.880      ;
+; 97.037 ; rBitCnt[3]                                        ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.880      ;
+; 97.037 ; rBitCnt[3]                                        ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.880      ;
+; 97.037 ; rBitCnt[3]                                        ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.880      ;
+; 97.046 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.871      ;
+; 97.047 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.870      ;
+; 97.052 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.056 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.861      ;
+; 97.076 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.080     ; 2.842      ;
+; 97.077 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.080     ; 2.841      ;
+; 97.083 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.080     ; 2.835      ;
+; 97.086 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.831      ;
+; 97.087 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.080     ; 2.831      ;
+; 97.088 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.829      ;
+; 97.092 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.082     ; 2.824      ;
+; 97.112 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.805      ;
+; 97.147 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.082     ; 2.769      ;
+; 97.148 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.082     ; 2.768      ;
+; 97.149 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.082     ; 2.767      ;
+; 97.150 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.767      ;
+; 97.151 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.766      ;
+; 97.155 ; rBitCnt[4]                                        ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.762      ;
+; 97.155 ; rBitCnt[4]                                        ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.762      ;
+; 97.155 ; rBitCnt[4]                                        ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.762      ;
+; 97.155 ; rBitCnt[4]                                        ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.762      ;
+; 97.156 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.761      ;
+; 97.157 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.082     ; 2.759      ;
+; 97.160 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.757      ;
+; 97.168 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.080     ; 2.750      ;
+; 97.169 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.748      ;
+; 97.170 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.080     ; 2.748      ;
+; 97.196 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.082     ; 2.720      ;
+; 97.210 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.080     ; 2.708      ;
+; 97.211 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.080     ; 2.707      ;
+; 97.217 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.080     ; 2.701      ;
+; 97.221 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.080     ; 2.697      ;
+; 97.230 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.082     ; 2.686      ;
+; 97.231 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.082     ; 2.685      ;
+; 97.232 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.082     ; 2.684      ;
+; 97.240 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.082     ; 2.676      ;
+; 97.245 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.672      ;
+; 97.246 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.671      ;
+; 97.246 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.671      ;
+; 97.255 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.662      ;
+; 97.267 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.650      ;
++--------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'iSlowClk'                                                                                                                                              ;
++-------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                         ; To Node                                           ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.401 ; rBitCnt[4]                                        ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.082      ; 0.669      ;
+; 0.401 ; rBitCnt[3]                                        ; rBitCnt[3]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.082      ; 0.669      ;
+; 0.401 ; rBitCnt[2]                                        ; rBitCnt[2]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.082      ; 0.669      ;
+; 0.401 ; rBitCnt[1]                                        ; rBitCnt[1]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.082      ; 0.669      ;
+; 0.402 ; rState.ST_START                                   ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.669      ;
+; 0.402 ; rStopStarted                                      ; rStopStarted                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.669      ;
+; 0.402 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.669      ;
+; 0.428 ; rTxShift[3]                                       ; rTxShift[2]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.695      ;
+; 0.428 ; rTxShift[4]                                       ; rTxShift[3]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.695      ;
+; 0.428 ; rTxShift[8]                                       ; rTxShift[7]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.695      ;
+; 0.429 ; rTxShift[1]                                       ; rTxShift[0]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.696      ;
+; 0.429 ; rTxShift[5]                                       ; rTxShift[4]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.696      ;
+; 0.429 ; rTxShift[6]                                       ; rTxShift[5]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.696      ;
+; 0.429 ; rTxShift[14]                                      ; rTxShift[13]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.696      ;
+; 0.431 ; rTxShift[9]                                       ; rTxShift[8]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.698      ;
+; 0.431 ; rTxShift[10]                                      ; rTxShift[9]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.698      ;
+; 0.496 ; rState.ST_IDLE                                    ; oBusyTx~reg0                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.763      ;
+; 0.496 ; rState.ST_IDLE                                    ; oSerialTx~reg0                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.763      ;
+; 0.551 ; rTxShift[11]                                      ; rTxShift[10]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.818      ;
+; 0.553 ; rTxShift[2]                                       ; rTxShift[1]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.820      ;
+; 0.553 ; rTxShift[7]                                       ; rTxShift[6]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.820      ;
+; 0.554 ; rTxShift[13]                                      ; rTxShift[12]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.821      ;
+; 0.555 ; rTxShift[12]                                      ; rTxShift[11]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.822      ;
+; 0.642 ; rState.ST_STOP                                    ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.909      ;
+; 0.648 ; rState.ST_STOP                                    ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.915      ;
+; 0.651 ; rState.ST_STOP                                    ; rStopStarted                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.918      ;
+; 0.664 ; rState.ST_IDLE                                    ; oFifoRinc~reg0                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.082      ; 0.932      ;
+; 0.672 ; rState.ST_DATA                                    ; rBitCnt[2]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.939      ;
+; 0.711 ; rState.ST_START                                   ; rStopStarted                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.978      ;
+; 0.730 ; rBaudClkD                                         ; oFifoRinc~reg0                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 0.997      ;
+; 0.778 ; rState.ST_DATA                                    ; rBitCnt[0]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.045      ;
+; 0.816 ; rState.ST_START                                   ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.083      ;
+; 0.823 ; rState.ST_DATA                                    ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.090      ;
+; 0.865 ; rState.ST_DATA                                    ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.132      ;
+; 0.882 ; rState.ST_DATA                                    ; rStopStarted                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.149      ;
+; 0.891 ; rState.ST_DATA                                    ; rBitCnt[3]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.158      ;
+; 0.895 ; rState.ST_DATA                                    ; rBitCnt[1]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.162      ;
+; 0.897 ; rState.ST_DATA                                    ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.164      ;
+; 0.930 ; rBitCnt[0]                                        ; rBitCnt[0]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.197      ;
+; 0.944 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; oFifoRinc~reg0                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.083      ; 1.213      ;
+; 0.989 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rBaudClkD                                         ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.083      ; 1.258      ;
+; 1.002 ; rState.ST_STOP                                    ; rBitCnt[0]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.269      ;
+; 1.025 ; rState.ST_DATA                                    ; rTxShift[11]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.285      ;
+; 1.030 ; rStopStarted                                      ; rBitCnt[0]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.297      ;
+; 1.052 ; rTxShift[15]                                      ; rTxShift[14]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.312      ;
+; 1.097 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.364      ;
+; 1.100 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.367      ;
+; 1.113 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.380      ;
+; 1.196 ; rStopStarted                                      ; rBitCnt[3]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.463      ;
+; 1.197 ; rStopStarted                                      ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.464      ;
+; 1.197 ; rStopStarted                                      ; rBitCnt[2]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.464      ;
+; 1.197 ; rStopStarted                                      ; rBitCnt[1]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.464      ;
+; 1.239 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.506      ;
+; 1.250 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.517      ;
+; 1.269 ; rState.ST_DATA                                    ; rTxShift[13]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.529      ;
+; 1.270 ; rState.ST_DATA                                    ; rTxShift[7]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.530      ;
+; 1.270 ; rState.ST_DATA                                    ; rTxShift[8]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.530      ;
+; 1.272 ; rState.ST_DATA                                    ; rTxShift[0]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.532      ;
+; 1.274 ; rState.ST_DATA                                    ; rTxShift[5]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.534      ;
+; 1.275 ; rState.ST_DATA                                    ; rTxShift[3]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.535      ;
+; 1.276 ; rState.ST_DATA                                    ; rTxShift[2]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.536      ;
+; 1.277 ; rState.ST_DATA                                    ; rTxShift[4]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.537      ;
+; 1.277 ; rState.ST_DATA                                    ; rTxShift[9]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.537      ;
+; 1.280 ; rState.ST_DATA                                    ; rTxShift[10]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.540      ;
+; 1.283 ; rState.ST_DATA                                    ; rTxShift[1]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.543      ;
+; 1.283 ; rState.ST_DATA                                    ; rTxShift[14]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.543      ;
+; 1.286 ; rState.ST_DATA                                    ; rTxShift[6]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.546      ;
+; 1.287 ; rState.ST_DATA                                    ; rTxShift[12]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.547      ;
+; 1.305 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.572      ;
+; 1.306 ; rBitCnt[3]                                        ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.082      ; 1.574      ;
+; 1.313 ; rBitCnt[2]                                        ; rBitCnt[3]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.082      ; 1.581      ;
+; 1.318 ; rState.ST_START                                   ; rTxShift[4]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.578      ;
+; 1.319 ; rState.ST_START                                   ; rTxShift[9]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.579      ;
+; 1.320 ; rState.ST_START                                   ; rTxShift[2]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.580      ;
+; 1.321 ; rState.ST_START                                   ; rTxShift[3]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.581      ;
+; 1.323 ; rState.ST_START                                   ; rTxShift[5]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.583      ;
+; 1.325 ; rBitCnt[2]                                        ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.082      ; 1.593      ;
+; 1.327 ; rState.ST_START                                   ; rTxShift[0]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.587      ;
+; 1.329 ; rState.ST_START                                   ; rTxShift[7]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.589      ;
+; 1.330 ; rState.ST_START                                   ; rTxShift[8]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.590      ;
+; 1.331 ; rState.ST_START                                   ; rTxShift[13]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.591      ;
+; 1.332 ; rState.ST_START                                   ; rTxShift[12]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.592      ;
+; 1.333 ; rState.ST_START                                   ; rTxShift[6]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.593      ;
+; 1.337 ; rState.ST_START                                   ; rTxShift[1]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.597      ;
+; 1.338 ; rState.ST_START                                   ; rTxShift[14]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.598      ;
+; 1.342 ; rState.ST_START                                   ; rTxShift[10]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.602      ;
+; 1.351 ; rState.ST_STOP                                    ; oBusyTx~reg0                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.618      ;
+; 1.358 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.625      ;
+; 1.366 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.633      ;
+; 1.366 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.633      ;
+; 1.367 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.634      ;
+; 1.371 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.638      ;
+; 1.373 ; rState.ST_START                                   ; rTxShift[11]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 1.633      ;
+; 1.417 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.684      ;
+; 1.419 ; rBitCnt[1]                                        ; rBitCnt[3]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.082      ; 1.687      ;
+; 1.423 ; rStopStarted                                      ; oBusyTx~reg0                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.690      ;
+; 1.425 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.692      ;
+; 1.426 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.693      ;
+; 1.428 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.081      ; 1.695      ;
+; 1.431 ; rBitCnt[1]                                        ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.082      ; 1.699      ;
++-------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+No synchronizer chains to report.
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                         ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 332.23 MHz ; 250.0 MHz       ; iSlowClk   ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++----------+--------+----------------+
+; Clock    ; Slack  ; End Point TNS  ;
++----------+--------+----------------+
+; iSlowClk ; 96.990 ; 0.000          ;
++----------+--------+----------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++----------+-------+----------------+
+; Clock    ; Slack ; End Point TNS  ;
++----------+-------+----------------+
+; iSlowClk ; 0.353 ; 0.000          ;
++----------+-------+----------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++----------+--------+------------------------------+
+; Clock    ; Slack  ; End Point TNS                ;
++----------+--------+------------------------------+
+; iSlowClk ; 49.778 ; 0.000                        ;
++----------+--------+------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'iSlowClk'                                                                                                                                               ;
++--------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                         ; To Node                                           ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 96.990 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.937      ;
+; 96.992 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.935      ;
+; 97.053 ; rBaudClkD                                         ; rTxShift[0]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.053 ; rBaudClkD                                         ; rTxShift[1]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.053 ; rBaudClkD                                         ; rTxShift[2]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.053 ; rBaudClkD                                         ; rTxShift[3]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.053 ; rBaudClkD                                         ; rTxShift[4]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.053 ; rBaudClkD                                         ; rTxShift[5]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.053 ; rBaudClkD                                         ; rTxShift[6]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.053 ; rBaudClkD                                         ; rTxShift[7]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.053 ; rBaudClkD                                         ; rTxShift[8]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.053 ; rBaudClkD                                         ; rTxShift[9]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.053 ; rBaudClkD                                         ; rTxShift[10]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.053 ; rBaudClkD                                         ; rTxShift[11]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.053 ; rBaudClkD                                         ; rTxShift[12]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.053 ; rBaudClkD                                         ; rTxShift[13]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.053 ; rBaudClkD                                         ; rTxShift[14]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.081     ; 2.865      ;
+; 97.096 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.831      ;
+; 97.098 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.829      ;
+; 97.112 ; rBitCnt[1]                                        ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.815      ;
+; 97.112 ; rBitCnt[1]                                        ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.815      ;
+; 97.112 ; rBitCnt[1]                                        ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.815      ;
+; 97.112 ; rBitCnt[1]                                        ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.815      ;
+; 97.112 ; rBitCnt[2]                                        ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.815      ;
+; 97.112 ; rBitCnt[2]                                        ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.815      ;
+; 97.112 ; rBitCnt[2]                                        ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.815      ;
+; 97.112 ; rBitCnt[2]                                        ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.815      ;
+; 97.123 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[0]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.078     ; 2.798      ;
+; 97.123 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[1]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.078     ; 2.798      ;
+; 97.123 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[2]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.078     ; 2.798      ;
+; 97.123 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[3]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.078     ; 2.798      ;
+; 97.123 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[4]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.078     ; 2.798      ;
+; 97.123 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[5]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.078     ; 2.798      ;
+; 97.123 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[6]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.078     ; 2.798      ;
+; 97.123 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[7]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.078     ; 2.798      ;
+; 97.123 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[8]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.078     ; 2.798      ;
+; 97.123 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[9]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.078     ; 2.798      ;
+; 97.123 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[10]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.078     ; 2.798      ;
+; 97.123 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[11]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.078     ; 2.798      ;
+; 97.123 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[12]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.078     ; 2.798      ;
+; 97.123 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[13]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.078     ; 2.798      ;
+; 97.123 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[14]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.078     ; 2.798      ;
+; 97.156 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.771      ;
+; 97.158 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.769      ;
+; 97.187 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.740      ;
+; 97.189 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.738      ;
+; 97.234 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.693      ;
+; 97.244 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.683      ;
+; 97.249 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.678      ;
+; 97.253 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.674      ;
+; 97.275 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.652      ;
+; 97.277 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.650      ;
+; 97.284 ; rBitCnt[3]                                        ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.643      ;
+; 97.284 ; rBitCnt[3]                                        ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.643      ;
+; 97.284 ; rBitCnt[3]                                        ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.643      ;
+; 97.284 ; rBitCnt[3]                                        ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.643      ;
+; 97.289 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.638      ;
+; 97.291 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.636      ;
+; 97.306 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.620      ;
+; 97.340 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.587      ;
+; 97.350 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.577      ;
+; 97.355 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.572      ;
+; 97.359 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.568      ;
+; 97.374 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.553      ;
+; 97.376 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.551      ;
+; 97.399 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.528      ;
+; 97.400 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.527      ;
+; 97.406 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.521      ;
+; 97.406 ; rBitCnt[4]                                        ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.521      ;
+; 97.406 ; rBitCnt[4]                                        ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.521      ;
+; 97.406 ; rBitCnt[4]                                        ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.521      ;
+; 97.406 ; rBitCnt[4]                                        ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.521      ;
+; 97.410 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.517      ;
+; 97.412 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.514      ;
+; 97.422 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.504      ;
+; 97.424 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.502      ;
+; 97.424 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.502      ;
+; 97.429 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.497      ;
+; 97.431 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.496      ;
+; 97.432 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.494      ;
+; 97.441 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.486      ;
+; 97.444 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.483      ;
+; 97.446 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.481      ;
+; 97.446 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.481      ;
+; 97.450 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.477      ;
+; 97.468 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.458      ;
+; 97.503 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.423      ;
+; 97.518 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.409      ;
+; 97.519 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.408      ;
+; 97.521 ; rStopStarted                                      ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.405      ;
+; 97.521 ; rStopStarted                                      ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.405      ;
+; 97.521 ; rStopStarted                                      ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.405      ;
+; 97.521 ; rStopStarted                                      ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.405      ;
+; 97.525 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.402      ;
+; 97.528 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.398      ;
+; 97.529 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.398      ;
+; 97.530 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.396      ;
+; 97.530 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.073     ; 2.396      ;
+; 97.533 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.072     ; 2.394      ;
+; 97.537 ; rBaudClkD                                         ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.075     ; 2.387      ;
++--------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'iSlowClk'                                                                                                                                               ;
++-------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                         ; To Node                                           ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.353 ; rState.ST_START                                   ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.597      ;
+; 0.353 ; rBitCnt[4]                                        ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.597      ;
+; 0.353 ; rBitCnt[3]                                        ; rBitCnt[3]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.597      ;
+; 0.353 ; rBitCnt[2]                                        ; rBitCnt[2]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.597      ;
+; 0.353 ; rBitCnt[1]                                        ; rBitCnt[1]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.597      ;
+; 0.353 ; rStopStarted                                      ; rStopStarted                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.597      ;
+; 0.354 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.072      ; 0.597      ;
+; 0.394 ; rTxShift[3]                                       ; rTxShift[2]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.638      ;
+; 0.394 ; rTxShift[4]                                       ; rTxShift[3]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.638      ;
+; 0.395 ; rTxShift[1]                                       ; rTxShift[0]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.639      ;
+; 0.395 ; rTxShift[5]                                       ; rTxShift[4]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.639      ;
+; 0.395 ; rTxShift[6]                                       ; rTxShift[5]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.639      ;
+; 0.395 ; rTxShift[8]                                       ; rTxShift[7]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.639      ;
+; 0.395 ; rTxShift[14]                                      ; rTxShift[13]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.639      ;
+; 0.397 ; rTxShift[9]                                       ; rTxShift[8]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.641      ;
+; 0.398 ; rTxShift[10]                                      ; rTxShift[9]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.642      ;
+; 0.446 ; rState.ST_IDLE                                    ; oBusyTx~reg0                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.690      ;
+; 0.446 ; rState.ST_IDLE                                    ; oSerialTx~reg0                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.690      ;
+; 0.505 ; rTxShift[11]                                      ; rTxShift[10]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.749      ;
+; 0.507 ; rTxShift[2]                                       ; rTxShift[1]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.751      ;
+; 0.507 ; rTxShift[7]                                       ; rTxShift[6]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.751      ;
+; 0.508 ; rTxShift[13]                                      ; rTxShift[12]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.752      ;
+; 0.509 ; rTxShift[12]                                      ; rTxShift[11]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.753      ;
+; 0.593 ; rState.ST_STOP                                    ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.837      ;
+; 0.600 ; rState.ST_STOP                                    ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.844      ;
+; 0.609 ; rState.ST_STOP                                    ; rStopStarted                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.853      ;
+; 0.612 ; rState.ST_IDLE                                    ; oFifoRinc~reg0                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.074      ; 0.857      ;
+; 0.626 ; rState.ST_DATA                                    ; rBitCnt[2]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.072      ; 0.869      ;
+; 0.651 ; rState.ST_START                                   ; rStopStarted                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.895      ;
+; 0.668 ; rBaudClkD                                         ; oFifoRinc~reg0                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.912      ;
+; 0.724 ; rState.ST_DATA                                    ; rBitCnt[0]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.968      ;
+; 0.754 ; rState.ST_START                                   ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 0.998      ;
+; 0.763 ; rState.ST_DATA                                    ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.007      ;
+; 0.800 ; rState.ST_DATA                                    ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.044      ;
+; 0.818 ; rState.ST_DATA                                    ; rStopStarted                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.062      ;
+; 0.826 ; rState.ST_DATA                                    ; rBitCnt[3]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.072      ; 1.069      ;
+; 0.831 ; rState.ST_DATA                                    ; rBitCnt[1]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.072      ; 1.074      ;
+; 0.832 ; rState.ST_DATA                                    ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.072      ; 1.075      ;
+; 0.857 ; rBitCnt[0]                                        ; rBitCnt[0]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.101      ;
+; 0.868 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; oFifoRinc~reg0                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.075      ; 1.114      ;
+; 0.914 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rBaudClkD                                         ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.075      ; 1.160      ;
+; 0.920 ; rState.ST_STOP                                    ; rBitCnt[0]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.164      ;
+; 0.934 ; rStopStarted                                      ; rBitCnt[0]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.178      ;
+; 0.943 ; rState.ST_DATA                                    ; rTxShift[11]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.180      ;
+; 0.973 ; rTxShift[15]                                      ; rTxShift[14]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.210      ;
+; 0.999 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.243      ;
+; 1.003 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.247      ;
+; 1.019 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.263      ;
+; 1.072 ; rStopStarted                                      ; rBitCnt[3]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.072      ; 1.315      ;
+; 1.072 ; rStopStarted                                      ; rBitCnt[2]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.072      ; 1.315      ;
+; 1.072 ; rStopStarted                                      ; rBitCnt[1]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.072      ; 1.315      ;
+; 1.073 ; rStopStarted                                      ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.072      ; 1.316      ;
+; 1.133 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.377      ;
+; 1.144 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.388      ;
+; 1.171 ; rState.ST_DATA                                    ; rTxShift[13]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.408      ;
+; 1.171 ; rState.ST_DATA                                    ; rTxShift[8]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.408      ;
+; 1.172 ; rState.ST_DATA                                    ; rTxShift[7]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.409      ;
+; 1.173 ; rState.ST_DATA                                    ; rTxShift[0]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.410      ;
+; 1.176 ; rState.ST_DATA                                    ; rTxShift[5]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.413      ;
+; 1.176 ; rState.ST_DATA                                    ; rTxShift[10]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.413      ;
+; 1.177 ; rState.ST_DATA                                    ; rTxShift[3]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.414      ;
+; 1.178 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.072      ; 1.421      ;
+; 1.178 ; rState.ST_DATA                                    ; rTxShift[2]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.415      ;
+; 1.178 ; rState.ST_DATA                                    ; rTxShift[14]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.415      ;
+; 1.179 ; rState.ST_DATA                                    ; rTxShift[4]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.416      ;
+; 1.179 ; rState.ST_DATA                                    ; rTxShift[9]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.416      ;
+; 1.179 ; rState.ST_DATA                                    ; rTxShift[1]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.416      ;
+; 1.182 ; rState.ST_DATA                                    ; rTxShift[6]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.419      ;
+; 1.183 ; rState.ST_DATA                                    ; rTxShift[12]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.420      ;
+; 1.184 ; rBitCnt[2]                                        ; rBitCnt[3]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.428      ;
+; 1.193 ; rBitCnt[3]                                        ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.437      ;
+; 1.212 ; rBitCnt[2]                                        ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.456      ;
+; 1.222 ; rState.ST_STOP                                    ; oBusyTx~reg0                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.466      ;
+; 1.225 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.072      ; 1.468      ;
+; 1.225 ; rState.ST_START                                   ; rTxShift[4]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.462      ;
+; 1.226 ; rState.ST_START                                   ; rTxShift[9]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.463      ;
+; 1.227 ; rState.ST_START                                   ; rTxShift[2]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.464      ;
+; 1.228 ; rState.ST_START                                   ; rTxShift[3]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.465      ;
+; 1.230 ; rState.ST_START                                   ; rTxShift[5]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.467      ;
+; 1.232 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.476      ;
+; 1.234 ; rState.ST_START                                   ; rTxShift[0]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.471      ;
+; 1.234 ; rState.ST_START                                   ; rTxShift[12]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.471      ;
+; 1.236 ; rState.ST_START                                   ; rTxShift[7]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.473      ;
+; 1.236 ; rState.ST_START                                   ; rTxShift[6]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.473      ;
+; 1.237 ; rState.ST_START                                   ; rTxShift[8]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.474      ;
+; 1.238 ; rState.ST_START                                   ; rTxShift[13]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.475      ;
+; 1.240 ; rState.ST_START                                   ; rTxShift[1]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.477      ;
+; 1.240 ; rState.ST_START                                   ; rTxShift[14]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.477      ;
+; 1.240 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.484      ;
+; 1.241 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.485      ;
+; 1.241 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.485      ;
+; 1.244 ; rState.ST_START                                   ; rTxShift[10]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.481      ;
+; 1.276 ; rBitCnt[1]                                        ; rBitCnt[3]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.520      ;
+; 1.276 ; rStopStarted                                      ; oBusyTx~reg0                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.520      ;
+; 1.278 ; rState.ST_START                                   ; rTxShift[11]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.066      ; 1.515      ;
+; 1.281 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.525      ;
+; 1.289 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.533      ;
+; 1.290 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.534      ;
+; 1.291 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.535      ;
+; 1.304 ; rBitCnt[1]                                        ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.073      ; 1.548      ;
++-------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++----------+--------+----------------+
+; Clock    ; Slack  ; End Point TNS  ;
++----------+--------+----------------+
+; iSlowClk ; 98.404 ; 0.000          ;
++----------+--------+----------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++----------+-------+----------------+
+; Clock    ; Slack ; End Point TNS  ;
++----------+-------+----------------+
+; iSlowClk ; 0.181 ; 0.000          ;
++----------+-------+----------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++----------+--------+------------------------------+
+; Clock    ; Slack  ; End Point TNS                ;
++----------+--------+------------------------------+
+; iSlowClk ; 49.437 ; 0.000                        ;
++----------+--------+------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'iSlowClk'                                                                                                                                               ;
++--------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                         ; To Node                                           ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 98.404 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.541      ;
+; 98.406 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.539      ;
+; 98.430 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.515      ;
+; 98.432 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.513      ;
+; 98.438 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.507      ;
+; 98.440 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.505      ;
+; 98.462 ; rBaudClkD                                         ; rTxShift[0]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.045     ; 1.480      ;
+; 98.462 ; rBaudClkD                                         ; rTxShift[1]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.045     ; 1.480      ;
+; 98.462 ; rBaudClkD                                         ; rTxShift[2]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.045     ; 1.480      ;
+; 98.462 ; rBaudClkD                                         ; rTxShift[3]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.045     ; 1.480      ;
+; 98.462 ; rBaudClkD                                         ; rTxShift[4]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.045     ; 1.480      ;
+; 98.462 ; rBaudClkD                                         ; rTxShift[5]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.045     ; 1.480      ;
+; 98.462 ; rBaudClkD                                         ; rTxShift[6]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.045     ; 1.480      ;
+; 98.462 ; rBaudClkD                                         ; rTxShift[7]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.045     ; 1.480      ;
+; 98.462 ; rBaudClkD                                         ; rTxShift[8]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.045     ; 1.480      ;
+; 98.462 ; rBaudClkD                                         ; rTxShift[9]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.045     ; 1.480      ;
+; 98.462 ; rBaudClkD                                         ; rTxShift[10]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.045     ; 1.480      ;
+; 98.462 ; rBaudClkD                                         ; rTxShift[11]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.045     ; 1.480      ;
+; 98.462 ; rBaudClkD                                         ; rTxShift[12]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.045     ; 1.480      ;
+; 98.462 ; rBaudClkD                                         ; rTxShift[13]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.045     ; 1.480      ;
+; 98.462 ; rBaudClkD                                         ; rTxShift[14]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.045     ; 1.480      ;
+; 98.464 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[0]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.044     ; 1.479      ;
+; 98.464 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[1]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.044     ; 1.479      ;
+; 98.464 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[2]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.044     ; 1.479      ;
+; 98.464 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[3]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.044     ; 1.479      ;
+; 98.464 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[4]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.044     ; 1.479      ;
+; 98.464 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[5]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.044     ; 1.479      ;
+; 98.464 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[6]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.044     ; 1.479      ;
+; 98.464 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[7]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.044     ; 1.479      ;
+; 98.464 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[8]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.044     ; 1.479      ;
+; 98.464 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[9]                                       ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.044     ; 1.479      ;
+; 98.464 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[10]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.044     ; 1.479      ;
+; 98.464 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[11]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.044     ; 1.479      ;
+; 98.464 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[12]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.044     ; 1.479      ;
+; 98.464 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[13]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.044     ; 1.479      ;
+; 98.464 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rTxShift[14]                                      ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.044     ; 1.479      ;
+; 98.476 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.469      ;
+; 98.478 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.467      ;
+; 98.487 ; rBitCnt[2]                                        ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.458      ;
+; 98.487 ; rBitCnt[2]                                        ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.458      ;
+; 98.487 ; rBitCnt[2]                                        ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.458      ;
+; 98.487 ; rBitCnt[2]                                        ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.458      ;
+; 98.489 ; rBitCnt[1]                                        ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.456      ;
+; 98.489 ; rBitCnt[1]                                        ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.456      ;
+; 98.489 ; rBitCnt[1]                                        ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.456      ;
+; 98.489 ; rBitCnt[1]                                        ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.456      ;
+; 98.492 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.453      ;
+; 98.494 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.451      ;
+; 98.541 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.404      ;
+; 98.546 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.399      ;
+; 98.549 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.396      ;
+; 98.551 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.394      ;
+; 98.552 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.393      ;
+; 98.556 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.389      ;
+; 98.562 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.383      ;
+; 98.563 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.382      ;
+; 98.565 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.380      ;
+; 98.566 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.379      ;
+; 98.567 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.378      ;
+; 98.568 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.377      ;
+; 98.570 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.375      ;
+; 98.571 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.374      ;
+; 98.571 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.374      ;
+; 98.572 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.373      ;
+; 98.575 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.370      ;
+; 98.601 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.344      ;
+; 98.602 ; rBitCnt[3]                                        ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.343      ;
+; 98.602 ; rBitCnt[3]                                        ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.343      ;
+; 98.602 ; rBitCnt[3]                                        ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.343      ;
+; 98.602 ; rBitCnt[3]                                        ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.343      ;
+; 98.603 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.342      ;
+; 98.613 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.332      ;
+; 98.618 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.327      ;
+; 98.619 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.326      ;
+; 98.620 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.325      ;
+; 98.624 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.321      ;
+; 98.624 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.321      ;
+; 98.624 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.321      ;
+; 98.625 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.320      ;
+; 98.628 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.317      ;
+; 98.629 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.316      ;
+; 98.638 ; rBitCnt[4]                                        ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.307      ;
+; 98.638 ; rBitCnt[4]                                        ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.307      ;
+; 98.638 ; rBitCnt[4]                                        ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.307      ;
+; 98.638 ; rBitCnt[4]                                        ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.307      ;
+; 98.639 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.306      ;
+; 98.639 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.306      ;
+; 98.643 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.302      ;
+; 98.643 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.302      ;
+; 98.644 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.301      ;
+; 98.644 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.301      ;
+; 98.645 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.300      ;
+; 98.646 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.299      ;
+; 98.647 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.298      ;
+; 98.647 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.298      ;
+; 98.647 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.298      ;
+; 98.648 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.297      ;
+; 98.652 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.293      ;
+; 98.655 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.290      ;
+; 98.679 ; rStopStarted                                      ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 100.000      ; -0.042     ; 1.266      ;
++--------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'iSlowClk'                                                                                                                                               ;
++-------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                         ; To Node                                           ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.181 ; rState.ST_START                                   ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.307      ;
+; 0.181 ; rBitCnt[4]                                        ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.307      ;
+; 0.181 ; rBitCnt[3]                                        ; rBitCnt[3]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.307      ;
+; 0.181 ; rBitCnt[2]                                        ; rBitCnt[2]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.307      ;
+; 0.181 ; rBitCnt[1]                                        ; rBitCnt[1]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.307      ;
+; 0.181 ; rStopStarted                                      ; rStopStarted                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.307      ;
+; 0.181 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.307      ;
+; 0.187 ; rTxShift[4]                                       ; rTxShift[3]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.313      ;
+; 0.188 ; rTxShift[1]                                       ; rTxShift[0]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.314      ;
+; 0.188 ; rTxShift[3]                                       ; rTxShift[2]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.314      ;
+; 0.188 ; rTxShift[5]                                       ; rTxShift[4]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.314      ;
+; 0.188 ; rTxShift[6]                                       ; rTxShift[5]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.314      ;
+; 0.188 ; rTxShift[8]                                       ; rTxShift[7]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.314      ;
+; 0.188 ; rTxShift[14]                                      ; rTxShift[13]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.314      ;
+; 0.190 ; rTxShift[9]                                       ; rTxShift[8]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.316      ;
+; 0.191 ; rTxShift[10]                                      ; rTxShift[9]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.317      ;
+; 0.233 ; rState.ST_IDLE                                    ; oBusyTx~reg0                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.359      ;
+; 0.233 ; rState.ST_IDLE                                    ; oSerialTx~reg0                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.359      ;
+; 0.246 ; rTxShift[11]                                      ; rTxShift[10]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.372      ;
+; 0.248 ; rTxShift[2]                                       ; rTxShift[1]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.374      ;
+; 0.248 ; rTxShift[7]                                       ; rTxShift[6]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.374      ;
+; 0.249 ; rTxShift[13]                                      ; rTxShift[12]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.375      ;
+; 0.250 ; rTxShift[12]                                      ; rTxShift[11]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.376      ;
+; 0.284 ; rState.ST_STOP                                    ; rStopStarted                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.410      ;
+; 0.288 ; rState.ST_STOP                                    ; rState.ST_IDLE                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.414      ;
+; 0.290 ; rState.ST_STOP                                    ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.416      ;
+; 0.298 ; rState.ST_DATA                                    ; rBitCnt[2]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.424      ;
+; 0.300 ; rState.ST_IDLE                                    ; oFifoRinc~reg0                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.426      ;
+; 0.326 ; rState.ST_START                                   ; rStopStarted                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.452      ;
+; 0.332 ; rBaudClkD                                         ; oFifoRinc~reg0                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.458      ;
+; 0.346 ; rState.ST_DATA                                    ; rBitCnt[0]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.472      ;
+; 0.355 ; rState.ST_START                                   ; rState.ST_DATA                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.481      ;
+; 0.360 ; rState.ST_DATA                                    ; rState.ST_STOP                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.486      ;
+; 0.393 ; rState.ST_DATA                                    ; rState.ST_START                                   ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.519      ;
+; 0.398 ; rState.ST_DATA                                    ; rStopStarted                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.524      ;
+; 0.400 ; rState.ST_DATA                                    ; rBitCnt[3]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.526      ;
+; 0.405 ; rState.ST_DATA                                    ; rBitCnt[1]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.531      ;
+; 0.406 ; rState.ST_DATA                                    ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.532      ;
+; 0.419 ; rBitCnt[0]                                        ; rBitCnt[0]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.545      ;
+; 0.419 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; oFifoRinc~reg0                                    ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.043      ; 0.546      ;
+; 0.433 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|oClk    ; rBaudClkD                                         ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.043      ; 0.560      ;
+; 0.442 ; rState.ST_STOP                                    ; rBitCnt[0]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.568      ;
+; 0.481 ; rTxShift[15]                                      ; rTxShift[14]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.604      ;
+; 0.483 ; rState.ST_DATA                                    ; rTxShift[11]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.606      ;
+; 0.483 ; rStopStarted                                      ; rBitCnt[0]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.609      ;
+; 0.503 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.629      ;
+; 0.505 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.631      ;
+; 0.505 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.631      ;
+; 0.567 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.693      ;
+; 0.571 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.697      ;
+; 0.576 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[4] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.702      ;
+; 0.584 ; rStopStarted                                      ; rBitCnt[3]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.710      ;
+; 0.585 ; rStopStarted                                      ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.711      ;
+; 0.585 ; rStopStarted                                      ; rBitCnt[2]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.711      ;
+; 0.585 ; rStopStarted                                      ; rBitCnt[1]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.711      ;
+; 0.596 ; rState.ST_DATA                                    ; rTxShift[13]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.719      ;
+; 0.596 ; rState.ST_DATA                                    ; rTxShift[8]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.719      ;
+; 0.596 ; rBitCnt[3]                                        ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.722      ;
+; 0.597 ; rState.ST_DATA                                    ; rTxShift[7]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.720      ;
+; 0.599 ; rState.ST_DATA                                    ; rTxShift[0]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.722      ;
+; 0.601 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[5] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.727      ;
+; 0.601 ; rState.ST_DATA                                    ; rTxShift[5]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.724      ;
+; 0.601 ; rState.ST_DATA                                    ; rTxShift[10]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.724      ;
+; 0.602 ; rState.ST_START                                   ; rTxShift[4]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.725      ;
+; 0.603 ; rState.ST_DATA                                    ; rTxShift[3]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.726      ;
+; 0.603 ; rState.ST_START                                   ; rTxShift[2]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.726      ;
+; 0.603 ; rState.ST_DATA                                    ; rTxShift[2]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.726      ;
+; 0.603 ; rState.ST_START                                   ; rTxShift[9]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.726      ;
+; 0.603 ; rState.ST_DATA                                    ; rTxShift[14]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.726      ;
+; 0.604 ; rState.ST_START                                   ; rTxShift[3]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.727      ;
+; 0.604 ; rState.ST_DATA                                    ; rTxShift[4]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.727      ;
+; 0.604 ; rState.ST_DATA                                    ; rTxShift[9]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.727      ;
+; 0.604 ; rState.ST_DATA                                    ; rTxShift[1]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.727      ;
+; 0.605 ; rBitCnt[2]                                        ; rBitCnt[3]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.731      ;
+; 0.606 ; rState.ST_START                                   ; rTxShift[5]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.729      ;
+; 0.607 ; rState.ST_DATA                                    ; rTxShift[6]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.730      ;
+; 0.608 ; rState.ST_DATA                                    ; rTxShift[12]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.731      ;
+; 0.609 ; rState.ST_START                                   ; rTxShift[0]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.732      ;
+; 0.610 ; rState.ST_START                                   ; rTxShift[12]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.733      ;
+; 0.610 ; rBitCnt[2]                                        ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.736      ;
+; 0.611 ; rState.ST_START                                   ; rTxShift[7]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.734      ;
+; 0.611 ; rState.ST_START                                   ; rTxShift[6]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.734      ;
+; 0.612 ; rState.ST_START                                   ; rTxShift[8]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.735      ;
+; 0.613 ; rState.ST_START                                   ; rTxShift[13]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.736      ;
+; 0.615 ; rState.ST_START                                   ; rTxShift[1]                                       ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.738      ;
+; 0.615 ; rState.ST_START                                   ; rTxShift[14]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.738      ;
+; 0.618 ; rState.ST_START                                   ; rTxShift[10]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.741      ;
+; 0.630 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[0] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.756      ;
+; 0.636 ; rState.ST_START                                   ; rTxShift[11]                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.039      ; 0.759      ;
+; 0.638 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[7] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.764      ;
+; 0.638 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[2] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.764      ;
+; 0.639 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.765      ;
+; 0.640 ; rState.ST_STOP                                    ; oBusyTx~reg0                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.766      ;
+; 0.646 ; oBusyTx~reg0                                      ; oBusyTx~reg0                                      ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.772      ;
+; 0.648 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[3] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.774      ;
+; 0.650 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[6] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.776      ;
+; 0.651 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[1] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.777      ;
+; 0.657 ; rBitCnt[1]                                        ; rBitCnt[3]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.783      ;
+; 0.662 ; rBitCnt[1]                                        ; rBitCnt[4]                                        ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.788      ;
+; 0.663 ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[8] ; Baud_Clk_Divider_50:u_Baud_Clk_Divider_50|rCnt[9] ; iSlowClk     ; iSlowClk    ; 0.000        ; 0.042      ; 0.789      ;
++-------+---------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                          ;
++------------------+--------+-------+----------+---------+---------------------+
+; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+--------+-------+----------+---------+---------------------+
+; Worst-case Slack ; 96.685 ; 0.181 ; N/A      ; N/A     ; 49.437              ;
+;  iSlowClk        ; 96.685 ; 0.181 ; N/A      ; N/A     ; 49.437              ;
+; Design-wide TNS  ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
+;  iSlowClk        ; 0.000  ; 0.000 ; N/A      ; N/A     ; 0.000               ;
++------------------+--------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; oFifoRinc     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oSerialTx     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oBusyTx       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; iFifoEmpty              ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iSlowClk                ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iResetN                 ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[0]            ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[1]            ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[2]            ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[3]            ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[4]            ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[5]            ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[6]            ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[7]            ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[8]            ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[9]            ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[10]           ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[11]           ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[12]           ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[13]           ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[14]           ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iFifoData[15]           ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; oFifoRinc     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oSerialTx     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oBusyTx       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.67e-09 V                   ; 2.38 V              ; -0.0485 V           ; 0.167 V                              ; 0.096 V                              ; 2.95e-10 s                  ; 2.73e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.67e-09 V                  ; 2.38 V             ; -0.0485 V          ; 0.167 V                             ; 0.096 V                             ; 2.95e-10 s                 ; 2.73e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.18e-09 V                   ; 2.38 V              ; -0.00483 V          ; 0.152 V                              ; 0.012 V                              ; 4.81e-10 s                  ; 6.29e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.18e-09 V                  ; 2.38 V             ; -0.00483 V         ; 0.152 V                             ; 0.012 V                             ; 4.81e-10 s                 ; 6.29e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; oFifoRinc     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oSerialTx     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oBusyTx       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.75e-07 V                   ; 2.35 V              ; -0.0109 V           ; 0.084 V                              ; 0.027 V                              ; 4.31e-10 s                  ; 3.61e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.75e-07 V                  ; 2.35 V             ; -0.0109 V          ; 0.084 V                             ; 0.027 V                             ; 4.31e-10 s                 ; 3.61e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.15e-07 V                   ; 2.35 V              ; -0.00712 V          ; 0.093 V                              ; 0.02 V                               ; 6.21e-10 s                  ; 7.9e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 6.15e-07 V                  ; 2.35 V             ; -0.00712 V         ; 0.093 V                             ; 0.02 V                              ; 6.21e-10 s                 ; 7.9e-10 s                  ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; oFifoRinc     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oSerialTx     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oBusyTx       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.74 V              ; -0.06 V             ; 0.158 V                              ; 0.08 V                               ; 2.68e-10 s                  ; 2.19e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.74 V             ; -0.06 V            ; 0.158 V                             ; 0.08 V                              ; 2.68e-10 s                 ; 2.19e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.54e-08 V                   ; 2.7 V               ; -0.00943 V          ; 0.276 V                              ; 0.035 V                              ; 3.19e-10 s                  ; 4.99e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.54e-08 V                  ; 2.7 V              ; -0.00943 V         ; 0.276 V                             ; 0.035 V                             ; 3.19e-10 s                 ; 4.99e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; iSlowClk   ; iSlowClk ; 396      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; iSlowClk   ; iSlowClk ; 396      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 18    ; 18   ;
+; Unconstrained Input Port Paths  ; 80    ; 80   ;
+; Unconstrained Output Ports      ; 3     ; 3    ;
+; Unconstrained Output Port Paths ; 3     ; 3    ;
++---------------------------------+-------+------+
+
+
++------------------------------------------+
+; Clock Status Summary                     ;
++----------+----------+------+-------------+
+; Target   ; Clock    ; Type ; Status      ;
++----------+----------+------+-------------+
+; iSlowClk ; iSlowClk ; Base ; Constrained ;
++----------+----------+------+-------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                            ;
++---------------+--------------------------------------------------------------------------------------+
+; Input Port    ; Comment                                                                              ;
++---------------+--------------------------------------------------------------------------------------+
+; iFifoData[0]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[1]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[2]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[3]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[4]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[5]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[6]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[7]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[8]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[9]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[10] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[11] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[12] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[13] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[14] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[15] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoEmpty    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iResetN       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++---------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; oBusyTx     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oFifoRinc   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oSerialTx   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                            ;
++---------------+--------------------------------------------------------------------------------------+
+; Input Port    ; Comment                                                                              ;
++---------------+--------------------------------------------------------------------------------------+
+; iFifoData[0]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[1]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[2]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[3]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[4]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[5]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[6]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[7]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[8]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[9]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[10] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[11] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[12] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[13] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[14] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoData[15] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iFifoEmpty    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iResetN       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++---------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; oBusyTx     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oFifoRinc   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oSerialTx   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Processing started: Fri Jun 26 15:39:48 2026
+Info: Command: quartus_sta UART_Tx_16bit -c UART_Tx_16bit
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (332104): Reading SDC File: 'UART_Tx_16bit.sdc'
+Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Info (332146): Worst-case setup slack is 96.685
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    96.685               0.000 iSlowClk 
+Info (332146): Worst-case hold slack is 0.401
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.401               0.000 iSlowClk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 49.756
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    49.756               0.000 iSlowClk 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info (332146): Worst-case setup slack is 96.990
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    96.990               0.000 iSlowClk 
+Info (332146): Worst-case hold slack is 0.353
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.353               0.000 iSlowClk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 49.778
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    49.778               0.000 iSlowClk 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info (332146): Worst-case setup slack is 98.404
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    98.404               0.000 iSlowClk 
+Info (332146): Worst-case hold slack is 0.181
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.181               0.000 iSlowClk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 49.437
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    49.437               0.000 iSlowClk 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 2102082 megabytes
+    Info: Processing ended: Fri Jun 26 15:39:49 2026
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

@@ -1,0 +1,59 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/sim
+vBaud_Clk_Divider_50
+Z1 !s110 1782393199
+!i10b 1
+!s100 VnnCGPhbWIVfWboXD?_zU1
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I8T=3ec8Rd5e2:9GTQ_ZB_2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1782068769
+8C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v
+FC:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v
+!i122 0
+L0 27 72
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1782393199.000000
+!s107 C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+n@baud_@clk_@divider_50
+vTB_Baud_Clk_Divider_50
+R1
+!i10b 1
+!s100 9X5^DXfzI6[K26zKSf1oa1
+R2
+Ig^[U63[=k^>bf7d:H]^:P1
+R3
+R0
+w1782068805
+8C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/TB_Baud_Clk_Divider_50.v
+FC:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/TB_Baud_Clk_Divider_50.v
+!i122 1
+L0 18 73
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/TB_Baud_Clk_Divider_50.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/TB_Baud_Clk_Divider_50.v|
+!i113 1
+R6
+R7
+n@t@b_@baud_@clk_@divider_50

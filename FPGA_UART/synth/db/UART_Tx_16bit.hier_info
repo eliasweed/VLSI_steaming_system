@@ -1,0 +1,75 @@
+|UART_Tx_16bit
+iSlowClk => iSlowClk.IN1
+iResetN => iResetN.IN1
+iFifoEmpty => Selector0.IN2
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rTxShift.OUTPUTSELECT
+iFifoEmpty => rState.OUTPUTSELECT
+iFifoEmpty => rState.OUTPUTSELECT
+iFifoEmpty => rState.OUTPUTSELECT
+iFifoEmpty => rState.OUTPUTSELECT
+iFifoEmpty => oFifoRinc.DATAB
+iFifoEmpty => Selector1.IN0
+iFifoData[0] => rTxShift.DATAB
+iFifoData[1] => rTxShift.DATAB
+iFifoData[2] => rTxShift.DATAB
+iFifoData[3] => rTxShift.DATAB
+iFifoData[4] => rTxShift.DATAB
+iFifoData[5] => rTxShift.DATAB
+iFifoData[6] => rTxShift.DATAB
+iFifoData[7] => rTxShift.DATAB
+iFifoData[8] => rTxShift.DATAB
+iFifoData[9] => rTxShift.DATAB
+iFifoData[10] => rTxShift.DATAB
+iFifoData[11] => rTxShift.DATAB
+iFifoData[12] => rTxShift.DATAB
+iFifoData[13] => rTxShift.DATAB
+iFifoData[14] => rTxShift.DATAB
+iFifoData[15] => rTxShift.DATAB
+oFifoRinc << oFifoRinc~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oSerialTx << oSerialTx~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oBusyTx << oBusyTx~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|UART_Tx_16bit|Baud_Clk_Divider_50:u_Baud_Clk_Divider_50
+iClk => oClk~reg0.CLK
+iClk => rCnt[0].CLK
+iClk => rCnt[1].CLK
+iClk => rCnt[2].CLK
+iClk => rCnt[3].CLK
+iClk => rCnt[4].CLK
+iClk => rCnt[5].CLK
+iClk => rCnt[6].CLK
+iClk => rCnt[7].CLK
+iClk => rCnt[8].CLK
+iClk => rCnt[9].CLK
+iClk => rCnt[10].CLK
+iResetN => oClk~reg0.ACLR
+iResetN => rCnt[0].PRESET
+iResetN => rCnt[1].PRESET
+iResetN => rCnt[2].PRESET
+iResetN => rCnt[3].ACLR
+iResetN => rCnt[4].ACLR
+iResetN => rCnt[5].ACLR
+iResetN => rCnt[6].ACLR
+iResetN => rCnt[7].ACLR
+iResetN => rCnt[8].ACLR
+iResetN => rCnt[9].PRESET
+iResetN => rCnt[10].ACLR
+oClk <= oClk~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

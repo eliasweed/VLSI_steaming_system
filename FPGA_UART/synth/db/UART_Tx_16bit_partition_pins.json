@@ -1,0 +1,97 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "oFifoRinc",
+					"strict" : false
+				},
+				{
+					"name" : "oSerialTx",
+					"strict" : false
+				},
+				{
+					"name" : "oBusyTx",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoEmpty",
+					"strict" : false
+				},
+				{
+					"name" : "iSlowClk",
+					"strict" : false
+				},
+				{
+					"name" : "iResetN",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[0]",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[1]",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[2]",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[3]",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[4]",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[5]",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[6]",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[7]",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[8]",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[9]",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[10]",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[11]",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[12]",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[13]",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[14]",
+					"strict" : false
+				},
+				{
+					"name" : "iFifoData[15]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

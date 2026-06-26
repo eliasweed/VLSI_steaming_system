@@ -1,0 +1,83 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/sim
+vBaud_Clk_Divider_50
+Z0 !s110 1782476397
+!i10b 1
+!s100 VnnCGPhbWIVfWboXD?_zU1
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I8T=3ec8Rd5e2:9GTQ_ZB_2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Git/Projects/VLSI_steaming_system/FPGA_UART/sim
+w1782068769
+8C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v
+FC:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v
+!i122 4
+L0 27 72
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1782476397.000000
+!s107 C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+n@baud_@clk_@divider_50
+vTB_UART_Tx_16bit_With_Divider
+R0
+!i10b 1
+!s100 UIJ>F1cScz<1QZ42aO`g62
+R1
+I[@b06[:@DWJTVQW:m07HQ3
+R2
+R3
+w1782071770
+8C:\Git\Projects\VLSI_steaming_system\FPGA_UART\rtl\TB_UART_Tx_16bit_With_Divider.v
+FC:\Git\Projects\VLSI_steaming_system\FPGA_UART\rtl\TB_UART_Tx_16bit_With_Divider.v
+!i122 2
+L0 20 184
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:\Git\Projects\VLSI_steaming_system\FPGA_UART\rtl\TB_UART_Tx_16bit_With_Divider.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\Git\Projects\VLSI_steaming_system\FPGA_UART\rtl\TB_UART_Tx_16bit_With_Divider.v|
+!i113 1
+R6
+R7
+n@t@b_@u@a@r@t_@tx_16bit_@with_@divider
+vUART_Tx_16bit
+R0
+!i10b 1
+!s100 ZOLJWFL=nC95@TZ0J2co@2
+R1
+I0D@gV95VPjjfB1lZ9z>n23
+R2
+R3
+w1782071537
+8C:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/UART_Tx_16bit.v
+FC:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/UART_Tx_16bit.v
+!i122 3
+L0 23 174
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/UART_Tx_16bit.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/UART_Tx_16bit.v|
+!i113 1
+R6
+R7
+n@u@a@r@t_@tx_16bit

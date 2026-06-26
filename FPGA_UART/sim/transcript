@@ -1,0 +1,81 @@
+# Compile of TB_UART_Tx_16bit_With_Divider.v was successful.
+# Compile of UART_Tx_16bit.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.TB_UART_Tx_16bit_With_Divider
+# vsim work.TB_UART_Tx_16bit_With_Divider 
+# Start time: 15:17:27 on Jun 26,2026
+# Loading work.TB_UART_Tx_16bit_With_Divider
+# Loading work.UART_Tx_16bit
+# ** Error: (vsim-3033) Instantiation of 'Baud_Clk_Divider_50' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /TB_UART_Tx_16bit_With_Divider/dut File: C:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/UART_Tx_16bit.v Line: 48
+#         Searched libraries:
+#             C:/Git/Projects/VLSI_steaming_system/FPGA_UART/sim/work
+# Error loading design
+# End time: 15:17:27 on Jun 26,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 5
+vsim work.TB_UART_Tx_16bit_With_Divider
+# vsim work.TB_UART_Tx_16bit_With_Divider 
+# Start time: 15:17:30 on Jun 26,2026
+# Loading work.TB_UART_Tx_16bit_With_Divider
+# Loading work.UART_Tx_16bit
+# ** Error: (vsim-3033) Instantiation of 'Baud_Clk_Divider_50' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /TB_UART_Tx_16bit_With_Divider/dut File: C:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/UART_Tx_16bit.v Line: 48
+#         Searched libraries:
+#             C:/Git/Projects/VLSI_steaming_system/FPGA_UART/sim/work
+# Error loading design
+# End time: 15:17:30 on Jun 26,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+# Compile of TB_UART_Tx_16bit_With_Divider.v was successful.
+# Compile of UART_Tx_16bit.v was successful.
+# Compile of Baud_Clk_Divider_50.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.TB_UART_Tx_16bit_With_Divider
+# vsim work.TB_UART_Tx_16bit_With_Divider 
+# Start time: 15:20:12 on Jun 26,2026
+# Loading work.TB_UART_Tx_16bit_With_Divider
+# Loading work.UART_Tx_16bit
+# Loading work.Baud_Clk_Divider_50
+run -all
+# PASS  at time 3051000: UART bit 0 = 0
+# PASS  at time 4051000: UART bit 1 = 0
+# PASS  at time 5051000: UART bit 2 = 1
+# PASS  at time 6051000: UART bit 3 = 0
+# PASS  at time 7051000: UART bit 4 = 1
+# PASS  at time 8051000: UART bit 5 = 1
+# PASS  at time 9051000: UART bit 6 = 0
+# PASS  at time 10051000: UART bit 7 = 1
+# PASS  at time 11051000: UART bit 8 = 0
+# PASS  at time 12051000: UART bit 9 = 1
+# PASS  at time 13051000: UART bit 10 = 0
+# PASS  at time 14051000: UART bit 11 = 1
+# PASS  at time 15051000: UART bit 12 = 0
+# PASS  at time 16051000: UART bit 13 = 0
+# PASS  at time 17051000: UART bit 14 = 1
+# PASS  at time 18051000: UART bit 15 = 0
+# PASS  at time 19051000: UART bit 16 = 1
+# PASS  at time 20051000: UART bit 17 = 1
+# PASS  at time 24051000: UART bit 0 = 0
+# PASS  at time 25051000: UART bit 1 = 0
+# PASS  at time 26051000: UART bit 2 = 0
+# PASS  at time 27051000: UART bit 3 = 1
+# PASS  at time 28051000: UART bit 4 = 0
+# PASS  at time 29051000: UART bit 5 = 1
+# PASS  at time 30051000: UART bit 6 = 1
+# PASS  at time 31051000: UART bit 7 = 0
+# PASS  at time 32051000: UART bit 8 = 0
+# PASS  at time 33051000: UART bit 9 = 0
+# PASS  at time 34051000: UART bit 10 = 1
+# PASS  at time 35051000: UART bit 11 = 0
+# PASS  at time 36051000: UART bit 12 = 0
+# PASS  at time 37051000: UART bit 13 = 1
+# PASS  at time 38051000: UART bit 14 = 0
+# PASS  at time 39051000: UART bit 15 = 0
+# PASS  at time 40051000: UART bit 16 = 0
+# PASS  at time 41051000: UART bit 17 = 1
+# UART testbench finished.
+# ** Note: $finish    : C:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/TB_UART_Tx_16bit_With_Divider.v(200)
+#    Time: 44050 ns  Iteration: 1  Instance: /TB_UART_Tx_16bit_With_Divider
+# 1
+# Break in Module TB_UART_Tx_16bit_With_Divider at C:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/TB_UART_Tx_16bit_With_Divider.v line 200
+# End time: 15:31:53 on Jun 26,2026, Elapsed time: 0:11:41
+# Errors: 0, Warnings: 3

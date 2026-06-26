@@ -1,0 +1,7 @@
+
+State Machine - |UART_Tx_16bit|rState
+Name rState.ST_IDLE rState.ST_STOP rState.ST_DATA rState.ST_START 
+rState.ST_IDLE 0 0 0 0 
+rState.ST_START 1 0 0 1 
+rState.ST_DATA 1 0 1 0 
+rState.ST_STOP 1 1 0 0 
