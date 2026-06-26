@@ -1,0 +1,105 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "oDataOut[0]",
+					"strict" : false
+				},
+				{
+					"name" : "oDataOut[1]",
+					"strict" : false
+				},
+				{
+					"name" : "oDataOut[2]",
+					"strict" : false
+				},
+				{
+					"name" : "oDataOut[3]",
+					"strict" : false
+				},
+				{
+					"name" : "oDataOut[4]",
+					"strict" : false
+				},
+				{
+					"name" : "oDataOut[5]",
+					"strict" : false
+				},
+				{
+					"name" : "oDataOut[6]",
+					"strict" : false
+				},
+				{
+					"name" : "oDataOut[7]",
+					"strict" : false
+				},
+				{
+					"name" : "oDataOut[8]",
+					"strict" : false
+				},
+				{
+					"name" : "oDataOut[9]",
+					"strict" : false
+				},
+				{
+					"name" : "oDataOut[10]",
+					"strict" : false
+				},
+				{
+					"name" : "oDataOut[11]",
+					"strict" : false
+				},
+				{
+					"name" : "oValidOut",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[0]",
+					"strict" : false
+				},
+				{
+					"name" : "iClkFast",
+					"strict" : false
+				},
+				{
+					"name" : "iRstN",
+					"strict" : false
+				},
+				{
+					"name" : "iValidIn",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[1]",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[2]",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[3]",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[4]",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[5]",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[6]",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[7]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

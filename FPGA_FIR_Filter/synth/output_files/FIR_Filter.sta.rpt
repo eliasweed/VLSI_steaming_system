@@ -1,0 +1,1288 @@
+Timing Analyzer report for FIR_Filter
+Fri Jun 26 21:31:39 2026
+Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Slow 1200mV 85C Model Fmax Summary
+  7. Timing Closure Recommendations
+  8. Slow 1200mV 85C Model Setup Summary
+  9. Slow 1200mV 85C Model Hold Summary
+ 10. Slow 1200mV 85C Model Recovery Summary
+ 11. Slow 1200mV 85C Model Removal Summary
+ 12. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 13. Slow 1200mV 85C Model Setup: 'iClkFast'
+ 14. Slow 1200mV 85C Model Hold: 'iClkFast'
+ 15. Slow 1200mV 85C Model Metastability Summary
+ 16. Slow 1200mV 0C Model Fmax Summary
+ 17. Slow 1200mV 0C Model Setup Summary
+ 18. Slow 1200mV 0C Model Hold Summary
+ 19. Slow 1200mV 0C Model Recovery Summary
+ 20. Slow 1200mV 0C Model Removal Summary
+ 21. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 22. Slow 1200mV 0C Model Setup: 'iClkFast'
+ 23. Slow 1200mV 0C Model Hold: 'iClkFast'
+ 24. Slow 1200mV 0C Model Metastability Summary
+ 25. Fast 1200mV 0C Model Setup Summary
+ 26. Fast 1200mV 0C Model Hold Summary
+ 27. Fast 1200mV 0C Model Recovery Summary
+ 28. Fast 1200mV 0C Model Removal Summary
+ 29. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 30. Fast 1200mV 0C Model Setup: 'iClkFast'
+ 31. Fast 1200mV 0C Model Hold: 'iClkFast'
+ 32. Fast 1200mV 0C Model Metastability Summary
+ 33. Multicorner Timing Analysis Summary
+ 34. Board Trace Model Assignments
+ 35. Input Transition Times
+ 36. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 37. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 38. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 39. Setup Transfers
+ 40. Hold Transfers
+ 41. Report TCCS
+ 42. Report RSKM
+ 43. Unconstrained Paths Summary
+ 44. Clock Status Summary
+ 45. Unconstrained Input Ports
+ 46. Unconstrained Output Ports
+ 47. Unconstrained Input Ports
+ 48. Unconstrained Output Ports
+ 49. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++---------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                         ;
++-----------------------+---------------------------------------------------------+
+; Quartus Prime Version ; Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                                  ;
+; Revision Name         ; FIR_Filter                                              ;
+; Device Family         ; Cyclone IV E                                            ;
+; Device Name           ; EP4CE115F29C7                                           ;
+; Timing Models         ; Final                                                   ;
+; Delay Model           ; Combined                                                ;
+; Rise/Fall Delays      ; Enabled                                                 ;
++-----------------------+---------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.03        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.4%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------+
+; SDC File List                                      ;
++----------------+--------+--------------------------+
+; SDC File Path  ; Status ; Read at                  ;
++----------------+--------+--------------------------+
+; FIR_Filter.sdc ; OK     ; Fri Jun 26 21:31:38 2026 ;
++----------------+--------+--------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                              ;
++------------+------+--------+-----------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock Name ; Type ; Period ; Frequency ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
++------------+------+--------+-----------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; iClkFast   ; Base ; 10.000 ; 100.0 MHz ; 0.000 ; 5.000 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { iClkFast } ;
++------------+------+--------+-----------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+
+
++--------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary               ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 180.86 MHz ; 180.86 MHz      ; iClkFast   ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++----------+-------+------------------+
+; Clock    ; Slack ; End Point TNS    ;
++----------+-------+------------------+
+; iClkFast ; 4.471 ; 0.000            ;
++----------+-------+------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++----------+-------+-----------------+
+; Clock    ; Slack ; End Point TNS   ;
++----------+-------+-----------------+
+; iClkFast ; 0.606 ; 0.000           ;
++----------+-------+-----------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++----------+-------+--------------------------------+
+; Clock    ; Slack ; End Point TNS                  ;
++----------+-------+--------------------------------+
+; iClkFast ; 4.756 ; 0.000                          ;
++----------+-------+--------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'iClkFast'                                                                     ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node           ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+; 4.471 ; rX0[1]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.449      ;
+; 4.517 ; rX0[0]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.403      ;
+; 4.534 ; rX0[1]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.386      ;
+; 4.536 ; rX0[0]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.384      ;
+; 4.601 ; rX0[3]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.319      ;
+; 4.603 ; rX0[1]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.317      ;
+; 4.647 ; rX0[2]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.273      ;
+; 4.649 ; rX0[0]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.271      ;
+; 4.664 ; rX0[3]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.256      ;
+; 4.666 ; rX0[2]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.254      ;
+; 4.666 ; rX0[1]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.254      ;
+; 4.668 ; rX0[0]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.252      ;
+; 4.670 ; rX1[1]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.249      ;
+; 4.671 ; rX1[2]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.248      ;
+; 4.731 ; rX1[1]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.188      ;
+; 4.733 ; rX0[3]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.187      ;
+; 4.734 ; rX1[2]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.185      ;
+; 4.735 ; rX0[1]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.185      ;
+; 4.737 ; rX1[0]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.182      ;
+; 4.756 ; rX1[0]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.163      ;
+; 4.779 ; rX0[2]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.141      ;
+; 4.796 ; rX0[3]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.124      ;
+; 4.798 ; rX0[2]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.122      ;
+; 4.799 ; rX0[5]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.121      ;
+; 4.802 ; rX1[1]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.117      ;
+; 4.803 ; rX1[3]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.116      ;
+; 4.803 ; rX1[2]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.116      ;
+; 4.814 ; rX1[4]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.105      ;
+; 4.824 ; rX1[4]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.095      ;
+; 4.825 ; rX0[0]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.095      ;
+; 4.830 ; rX0[4]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.090      ;
+; 4.849 ; rX0[4]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.071      ;
+; 4.863 ; rX1[1]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.056      ;
+; 4.865 ; rX0[3]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 5.055      ;
+; 4.866 ; rX1[3]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.053      ;
+; 4.866 ; rX1[2]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.053      ;
+; 4.869 ; rX1[0]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.050      ;
+; 4.888 ; rX1[0]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 5.031      ;
+; 4.931 ; rX0[5]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.989      ;
+; 4.934 ; rX1[1]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.985      ;
+; 4.935 ; rX1[3]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.984      ;
+; 4.935 ; rX1[2]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.984      ;
+; 4.946 ; rX1[4]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.973      ;
+; 4.950 ; rX0[5]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.970      ;
+; 4.954 ; rX0[2]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.966      ;
+; 4.956 ; rX1[4]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.963      ;
+; 4.962 ; rX0[4]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.958      ;
+; 4.981 ; rX0[4]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.939      ;
+; 4.998 ; rX1[3]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.921      ;
+; 5.035 ; rX1[5]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.884      ;
+; 5.038 ; rX1[0]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.881      ;
+; 5.050 ; rX0[1]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.870      ;
+; 5.054 ; rX1[5]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.865      ;
+; 5.062 ; rX0[0]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.858      ;
+; 5.067 ; rX1[3]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.852      ;
+; 5.069 ; rX0[1]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.851      ;
+; 5.078 ; rX1[4]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.841      ;
+; 5.116 ; rX1[6]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.803      ;
+; 5.140 ; rX0[0]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.780      ;
+; 5.167 ; rX1[5]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.752      ;
+; 5.186 ; rX1[5]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.733      ;
+; 5.192 ; rX0[2]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.728      ;
+; 5.202 ; rX0[5]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.718      ;
+; 5.214 ; rX0[0]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.706      ;
+; 5.236 ; rX0[6]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.684      ;
+; 5.248 ; rX1[6]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.671      ;
+; 5.248 ; rX1[1]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.671      ;
+; 5.253 ; rX1[1]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.666      ;
+; 5.254 ; rX1[0]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.665      ;
+; 5.254 ; rX1[2]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.665      ;
+; 5.255 ; rX0[6]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.665      ;
+; 5.267 ; rX1[6]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.652      ;
+; 5.273 ; rX1[2]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.646      ;
+; 5.277 ; rX1[7]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.642      ;
+; 5.283 ; rX0[7]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.637      ;
+; 5.357 ; rX1[0]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.562      ;
+; 5.380 ; rX1[1]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.539      ;
+; 5.386 ; rX1[0]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.533      ;
+; 5.444 ; rX1[7]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.475      ;
+; 5.450 ; rX0[3]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.470      ;
+; 5.451 ; rX1[3]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.468      ;
+; 5.474 ; rX0[4]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.446      ;
+; 5.542 ; rX1[6]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.377      ;
+; 5.575 ; rX0[1]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.345      ;
+; 5.645 ; rX0[7]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.275      ;
+; 5.663 ; rX1[4]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.256      ;
+; 5.664 ; rX0[2]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.256      ;
+; 5.671 ; rX0[6]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.249      ;
+; 5.683 ; rX1[5]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.236      ;
+; 5.685 ; rX0[0]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.235      ;
+; 5.795 ; rX1[2]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.124      ;
+; 5.806 ; rX0[5]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 4.114      ;
+; 5.860 ; rX1[3]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.059      ;
+; 5.863 ; rX1[7]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.056      ;
+; 5.917 ; rX1[1]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 4.002      ;
+; 5.941 ; rX1[0]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 3.978      ;
+; 5.995 ; rX0[6]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 3.925      ;
+; 6.059 ; rX0[4]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 3.861      ;
+; 6.127 ; rX1[6]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.079     ; 3.792      ;
+; 6.180 ; rX0[1]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.078     ; 3.740      ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'iClkFast'                                                                      ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node           ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+; 0.606 ; rX0[6]    ; rX1[6]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 0.873      ;
+; 0.607 ; rX1[3]    ; rX2[3]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 0.874      ;
+; 0.631 ; rX1[5]    ; rX2[5]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 0.898      ;
+; 0.631 ; rX0[1]    ; rX1[1]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 0.898      ;
+; 0.632 ; rX0[3]    ; rX1[3]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 0.899      ;
+; 0.634 ; rX0[2]    ; rX1[2]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 0.901      ;
+; 0.763 ; rX0[5]    ; rX1[5]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 1.030      ;
+; 0.777 ; rX1[2]    ; rX2[2]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 1.044      ;
+; 0.795 ; rX2[1]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.063      ;
+; 0.813 ; rX1[1]    ; rX2[1]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 1.080      ;
+; 0.814 ; rX0[4]    ; rX1[4]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 1.081      ;
+; 0.814 ; rX1[0]    ; rX2[0]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 1.081      ;
+; 0.814 ; rX0[0]    ; rX1[0]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 1.081      ;
+; 0.817 ; rX1[6]    ; rX2[6]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 1.084      ;
+; 0.840 ; rX2[5]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.108      ;
+; 0.878 ; rX1[0]    ; oDataOut[0]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 1.145      ;
+; 0.999 ; rX1[7]    ; rX2[7]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 1.266      ;
+; 1.001 ; rX1[4]    ; rX2[4]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 1.268      ;
+; 1.004 ; rX2[4]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.272      ;
+; 1.021 ; rX2[0]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.289      ;
+; 1.039 ; rX2[6]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.307      ;
+; 1.054 ; rX2[3]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.322      ;
+; 1.088 ; rX2[7]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.356      ;
+; 1.092 ; rX2[2]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.360      ;
+; 1.109 ; rX2[1]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.377      ;
+; 1.156 ; rX2[5]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.424      ;
+; 1.188 ; rX1[0]    ; oDataOut[1]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 1.455      ;
+; 1.226 ; rX2[1]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.494      ;
+; 1.235 ; rX2[1]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.503      ;
+; 1.253 ; rX2[5]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.521      ;
+; 1.282 ; rX2[5]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.550      ;
+; 1.317 ; rX2[0]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.585      ;
+; 1.326 ; rX2[4]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.594      ;
+; 1.339 ; rX2[0]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.607      ;
+; 1.339 ; rX2[4]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.607      ;
+; 1.352 ; rX2[1]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.620      ;
+; 1.359 ; rX2[6]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.627      ;
+; 1.361 ; rX2[1]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.629      ;
+; 1.368 ; rX2[3]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.636      ;
+; 1.373 ; rX2[6]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.641      ;
+; 1.387 ; rX1[1]    ; oDataOut[1]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 1.654      ;
+; 1.402 ; rX2[2]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.670      ;
+; 1.404 ; rX2[7]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.672      ;
+; 1.407 ; rX2[5]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.675      ;
+; 1.427 ; rX2[2]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.695      ;
+; 1.443 ; rX2[0]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.711      ;
+; 1.452 ; rX2[4]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.720      ;
+; 1.458 ; rX2[3]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.726      ;
+; 1.465 ; rX2[0]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.733      ;
+; 1.465 ; rX2[4]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.733      ;
+; 1.478 ; rX2[1]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.746      ;
+; 1.487 ; rX2[1]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.755      ;
+; 1.494 ; rX2[3]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.762      ;
+; 1.499 ; rX2[6]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.767      ;
+; 1.506 ; rX2[7]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.774      ;
+; 1.528 ; rX2[2]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.796      ;
+; 1.553 ; rX2[2]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.821      ;
+; 1.562 ; rX0[7]    ; rX1[7]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.081      ; 1.829      ;
+; 1.569 ; rX2[0]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.837      ;
+; 1.584 ; rX2[3]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.852      ;
+; 1.591 ; rX2[0]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.859      ;
+; 1.591 ; rX2[4]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.859      ;
+; 1.613 ; rX2[1]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.881      ;
+; 1.620 ; rX2[3]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.888      ;
+; 1.647 ; rX0[0]    ; oDataOut[1]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.915      ;
+; 1.654 ; rX2[2]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.922      ;
+; 1.679 ; rX2[2]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.947      ;
+; 1.695 ; rX2[0]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.963      ;
+; 1.717 ; rX2[0]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 1.985      ;
+; 1.738 ; rX2[3]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.006      ;
+; 1.805 ; rX2[2]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.073      ;
+; 1.843 ; rX2[0]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.111      ;
+; 1.916 ; rX1[0]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.184      ;
+; 2.057 ; rX1[0]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.325      ;
+; 2.068 ; rX1[0]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.336      ;
+; 2.117 ; rX1[4]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.385      ;
+; 2.120 ; rX1[7]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.388      ;
+; 2.122 ; rX1[3]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.390      ;
+; 2.130 ; rX1[1]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.398      ;
+; 2.134 ; rX1[5]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.402      ;
+; 2.135 ; rX1[2]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.403      ;
+; 2.156 ; rX1[0]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.424      ;
+; 2.166 ; rX1[3]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.434      ;
+; 2.167 ; rX1[2]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.435      ;
+; 2.271 ; rX0[1]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.083      ; 2.540      ;
+; 2.287 ; rX1[6]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.555      ;
+; 2.294 ; rX1[5]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.562      ;
+; 2.312 ; rX0[7]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.083      ; 2.581      ;
+; 2.319 ; rX1[0]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.587      ;
+; 2.339 ; rX1[4]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.607      ;
+; 2.340 ; rX0[4]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.083      ; 2.609      ;
+; 2.342 ; rX0[3]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.083      ; 2.611      ;
+; 2.357 ; rX1[0]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.625      ;
+; 2.371 ; rX0[2]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.083      ; 2.640      ;
+; 2.395 ; rX1[7]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.663      ;
+; 2.402 ; rX1[0]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.670      ;
+; 2.407 ; rX1[6]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.675      ;
+; 2.408 ; rX1[7]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.676      ;
+; 2.408 ; rX1[3]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.676      ;
+; 2.426 ; rX1[1]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.082      ; 2.694      ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+No synchronizer chains to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 201.33 MHz ; 201.33 MHz      ; iClkFast   ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++----------+-------+-----------------+
+; Clock    ; Slack ; End Point TNS   ;
++----------+-------+-----------------+
+; iClkFast ; 5.033 ; 0.000           ;
++----------+-------+-----------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++----------+-------+----------------+
+; Clock    ; Slack ; End Point TNS  ;
++----------+-------+----------------+
+; iClkFast ; 0.558 ; 0.000          ;
++----------+-------+----------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++----------+-------+-------------------------------+
+; Clock    ; Slack ; End Point TNS                 ;
++----------+-------+-------------------------------+
+; iClkFast ; 4.777 ; 0.000                         ;
++----------+-------+-------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'iClkFast'                                                                      ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node           ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+; 5.033 ; rX0[0]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.896      ;
+; 5.036 ; rX0[1]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.893      ;
+; 5.070 ; rX0[0]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.859      ;
+; 5.103 ; rX0[1]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.826      ;
+; 5.146 ; rX0[2]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.783      ;
+; 5.149 ; rX0[0]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.780      ;
+; 5.150 ; rX0[3]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.779      ;
+; 5.152 ; rX0[1]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.777      ;
+; 5.183 ; rX0[2]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.746      ;
+; 5.186 ; rX0[0]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.743      ;
+; 5.213 ; rX1[1]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.716      ;
+; 5.214 ; rX1[2]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.715      ;
+; 5.219 ; rX0[3]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.710      ;
+; 5.219 ; rX0[1]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.710      ;
+; 5.239 ; rX1[0]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.690      ;
+; 5.262 ; rX0[2]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.667      ;
+; 5.266 ; rX0[3]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.663      ;
+; 5.268 ; rX0[1]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.661      ;
+; 5.270 ; rX1[1]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.659      ;
+; 5.276 ; rX1[0]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.653      ;
+; 5.299 ; rX0[2]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.630      ;
+; 5.299 ; rX1[4]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.630      ;
+; 5.307 ; rX1[2]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.622      ;
+; 5.309 ; rX0[4]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.620      ;
+; 5.329 ; rX1[1]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.600      ;
+; 5.330 ; rX1[3]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.599      ;
+; 5.330 ; rX1[2]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.599      ;
+; 5.335 ; rX0[3]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.594      ;
+; 5.336 ; rX1[4]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.593      ;
+; 5.340 ; rX0[5]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.589      ;
+; 5.346 ; rX0[4]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.583      ;
+; 5.348 ; rX0[0]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.581      ;
+; 5.355 ; rX1[0]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.574      ;
+; 5.382 ; rX0[3]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.547      ;
+; 5.386 ; rX1[1]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.543      ;
+; 5.392 ; rX1[0]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.537      ;
+; 5.415 ; rX1[4]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.514      ;
+; 5.423 ; rX1[3]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.506      ;
+; 5.423 ; rX1[2]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.506      ;
+; 5.425 ; rX0[4]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.504      ;
+; 5.445 ; rX1[1]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.484      ;
+; 5.446 ; rX1[3]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.483      ;
+; 5.446 ; rX1[2]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.483      ;
+; 5.452 ; rX1[4]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.477      ;
+; 5.456 ; rX0[5]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.473      ;
+; 5.461 ; rX0[2]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.468      ;
+; 5.462 ; rX0[4]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.467      ;
+; 5.476 ; rX0[5]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.453      ;
+; 5.505 ; rX1[5]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.424      ;
+; 5.536 ; rX1[0]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.393      ;
+; 5.539 ; rX1[3]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.390      ;
+; 5.542 ; rX1[5]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.387      ;
+; 5.549 ; rX0[0]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.380      ;
+; 5.556 ; rX0[1]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.373      ;
+; 5.562 ; rX1[3]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.367      ;
+; 5.572 ; rX1[4]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.357      ;
+; 5.582 ; rX0[1]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.347      ;
+; 5.617 ; rX1[6]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.312      ;
+; 5.621 ; rX1[5]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.308      ;
+; 5.636 ; rX0[0]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.293      ;
+; 5.658 ; rX1[5]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.271      ;
+; 5.662 ; rX0[2]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.267      ;
+; 5.683 ; rX0[0]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.246      ;
+; 5.685 ; rX0[5]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.244      ;
+; 5.699 ; rX0[6]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.230      ;
+; 5.712 ; rX0[6]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.217      ;
+; 5.725 ; rX1[1]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.204      ;
+; 5.731 ; rX1[0]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.198      ;
+; 5.733 ; rX1[6]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.196      ;
+; 5.738 ; rX1[1]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.191      ;
+; 5.739 ; rX1[2]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.190      ;
+; 5.762 ; rX1[6]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.167      ;
+; 5.768 ; rX1[2]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.161      ;
+; 5.805 ; rX1[7]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.124      ;
+; 5.810 ; rX0[7]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.119      ;
+; 5.829 ; rX1[0]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.100      ;
+; 5.841 ; rX1[1]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.088      ;
+; 5.847 ; rX1[0]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.082      ;
+; 5.891 ; rX0[4]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.038      ;
+; 5.897 ; rX0[3]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.032      ;
+; 5.899 ; rX1[7]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.030      ;
+; 5.908 ; rX1[3]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 4.021      ;
+; 5.994 ; rX1[6]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.935      ;
+; 6.009 ; rX0[1]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.920      ;
+; 6.087 ; rX1[5]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.842      ;
+; 6.087 ; rX1[4]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.842      ;
+; 6.096 ; rX0[2]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.833      ;
+; 6.104 ; rX0[6]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.825      ;
+; 6.121 ; rX0[0]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.808      ;
+; 6.126 ; rX0[7]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.803      ;
+; 6.206 ; rX0[5]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.723      ;
+; 6.216 ; rX1[2]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.713      ;
+; 6.271 ; rX1[3]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.658      ;
+; 6.274 ; rX1[7]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.655      ;
+; 6.302 ; rX1[1]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.627      ;
+; 6.308 ; rX1[0]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.621      ;
+; 6.384 ; rX0[6]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.545      ;
+; 6.434 ; rX0[4]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.495      ;
+; 6.506 ; rX1[6]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.423      ;
+; 6.545 ; rX0[1]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.070     ; 3.384      ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'iClkFast'                                                                       ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node           ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+; 0.558 ; rX0[6]    ; rX1[6]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 0.801      ;
+; 0.559 ; rX1[3]    ; rX2[3]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 0.802      ;
+; 0.578 ; rX1[5]    ; rX2[5]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 0.821      ;
+; 0.579 ; rX0[3]    ; rX1[3]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 0.822      ;
+; 0.581 ; rX0[1]    ; rX1[1]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 0.824      ;
+; 0.582 ; rX0[2]    ; rX1[2]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 0.825      ;
+; 0.708 ; rX0[5]    ; rX1[5]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 0.951      ;
+; 0.720 ; rX1[2]    ; rX2[2]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 0.963      ;
+; 0.726 ; rX0[0]    ; rX1[0]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 0.969      ;
+; 0.731 ; rX1[6]    ; rX2[6]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 0.974      ;
+; 0.737 ; rX2[1]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 0.981      ;
+; 0.757 ; rX0[4]    ; rX1[4]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 1.000      ;
+; 0.757 ; rX1[1]    ; rX2[1]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 1.000      ;
+; 0.757 ; rX1[0]    ; rX2[0]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 1.000      ;
+; 0.781 ; rX2[5]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.025      ;
+; 0.799 ; rX1[0]    ; oDataOut[0]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 1.042      ;
+; 0.910 ; rX2[0]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.154      ;
+; 0.918 ; rX2[4]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.162      ;
+; 0.920 ; rX1[7]    ; rX2[7]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 1.163      ;
+; 0.923 ; rX1[4]    ; rX2[4]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 1.166      ;
+; 0.941 ; rX2[6]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.185      ;
+; 0.953 ; rX2[3]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.197      ;
+; 0.981 ; rX2[7]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.225      ;
+; 0.984 ; rX2[2]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.228      ;
+; 1.022 ; rX2[1]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.266      ;
+; 1.066 ; rX2[5]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.310      ;
+; 1.070 ; rX1[0]    ; oDataOut[1]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 1.313      ;
+; 1.094 ; rX2[1]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.338      ;
+; 1.117 ; rX2[5]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.361      ;
+; 1.132 ; rX2[1]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.376      ;
+; 1.174 ; rX2[0]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.418      ;
+; 1.176 ; rX2[5]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.420      ;
+; 1.182 ; rX2[4]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.426      ;
+; 1.204 ; rX2[1]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.448      ;
+; 1.212 ; rX2[6]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.456      ;
+; 1.238 ; rX2[0]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.482      ;
+; 1.238 ; rX2[4]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.482      ;
+; 1.242 ; rX2[1]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.486      ;
+; 1.244 ; rX2[5]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.488      ;
+; 1.248 ; rX2[2]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.492      ;
+; 1.266 ; rX2[6]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.510      ;
+; 1.269 ; rX2[3]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.513      ;
+; 1.271 ; rX1[1]    ; oDataOut[1]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 1.514      ;
+; 1.284 ; rX2[0]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.528      ;
+; 1.292 ; rX2[4]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.536      ;
+; 1.297 ; rX2[7]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.541      ;
+; 1.298 ; rX2[3]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.542      ;
+; 1.314 ; rX2[1]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.558      ;
+; 1.318 ; rX2[2]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.562      ;
+; 1.332 ; rX2[7]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.576      ;
+; 1.339 ; rX2[6]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.583      ;
+; 1.348 ; rX2[0]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.592      ;
+; 1.348 ; rX2[4]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.592      ;
+; 1.352 ; rX2[1]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.596      ;
+; 1.358 ; rX2[2]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.602      ;
+; 1.379 ; rX2[3]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.623      ;
+; 1.394 ; rX2[0]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.638      ;
+; 1.408 ; rX0[7]    ; rX1[7]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.072      ; 1.651      ;
+; 1.408 ; rX2[3]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.652      ;
+; 1.419 ; rX2[4]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.663      ;
+; 1.428 ; rX2[2]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.672      ;
+; 1.441 ; rX2[1]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.685      ;
+; 1.458 ; rX2[0]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.702      ;
+; 1.468 ; rX2[2]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.712      ;
+; 1.474 ; rX0[0]    ; oDataOut[1]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.718      ;
+; 1.489 ; rX2[3]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.733      ;
+; 1.504 ; rX2[0]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.748      ;
+; 1.535 ; rX2[3]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.779      ;
+; 1.538 ; rX2[2]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.782      ;
+; 1.568 ; rX2[0]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.812      ;
+; 1.595 ; rX2[2]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.839      ;
+; 1.631 ; rX2[0]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.875      ;
+; 1.745 ; rX1[0]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 1.989      ;
+; 1.856 ; rX1[0]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.100      ;
+; 1.879 ; rX1[0]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.123      ;
+; 1.911 ; rX1[7]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.155      ;
+; 1.911 ; rX1[1]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.155      ;
+; 1.913 ; rX1[4]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.157      ;
+; 1.914 ; rX1[2]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.158      ;
+; 1.915 ; rX1[3]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.159      ;
+; 1.935 ; rX1[5]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.179      ;
+; 1.943 ; rX1[0]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.187      ;
+; 1.951 ; rX1[2]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.195      ;
+; 1.953 ; rX1[3]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.197      ;
+; 2.038 ; rX0[1]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.074      ; 2.283      ;
+; 2.055 ; rX1[6]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.299      ;
+; 2.059 ; rX1[5]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.303      ;
+; 2.074 ; rX0[7]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.074      ; 2.319      ;
+; 2.096 ; rX1[0]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.340      ;
+; 2.099 ; rX0[4]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.074      ; 2.344      ;
+; 2.100 ; rX0[3]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.074      ; 2.345      ;
+; 2.110 ; rX1[4]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.354      ;
+; 2.121 ; rX0[2]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.074      ; 2.366      ;
+; 2.134 ; rX1[0]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.378      ;
+; 2.152 ; rX1[7]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.396      ;
+; 2.154 ; rX1[6]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.398      ;
+; 2.159 ; rX1[0]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.403      ;
+; 2.173 ; rX1[7]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.417      ;
+; 2.176 ; rX1[6]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.420      ;
+; 2.182 ; rX1[1]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.073      ; 2.426      ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++----------+-------+-----------------+
+; Clock    ; Slack ; End Point TNS   ;
++----------+-------+-----------------+
+; iClkFast ; 7.296 ; 0.000           ;
++----------+-------+-----------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++----------+-------+----------------+
+; Clock    ; Slack ; End Point TNS  ;
++----------+-------+----------------+
+; iClkFast ; 0.263 ; 0.000          ;
++----------+-------+----------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++----------+-------+-------------------------------+
+; Clock    ; Slack ; End Point TNS                 ;
++----------+-------+-------------------------------+
+; iClkFast ; 4.438 ; 0.000                         ;
++----------+-------+-------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'iClkFast'                                                                      ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node           ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+; 7.296 ; rX0[1]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.653      ;
+; 7.300 ; rX0[1]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.649      ;
+; 7.345 ; rX0[0]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.604      ;
+; 7.349 ; rX0[0]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.600      ;
+; 7.363 ; rX0[3]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.586      ;
+; 7.364 ; rX0[1]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.585      ;
+; 7.367 ; rX0[3]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.582      ;
+; 7.368 ; rX0[1]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.581      ;
+; 7.405 ; rX1[1]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.543      ;
+; 7.405 ; rX1[2]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.543      ;
+; 7.409 ; rX1[1]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.539      ;
+; 7.409 ; rX1[2]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.539      ;
+; 7.410 ; rX0[2]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.539      ;
+; 7.413 ; rX0[0]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.536      ;
+; 7.414 ; rX0[2]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.535      ;
+; 7.417 ; rX0[0]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.532      ;
+; 7.431 ; rX0[3]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.518      ;
+; 7.435 ; rX0[3]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.514      ;
+; 7.460 ; rX1[0]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.488      ;
+; 7.464 ; rX1[0]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.484      ;
+; 7.473 ; rX1[1]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.475      ;
+; 7.473 ; rX1[3]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.475      ;
+; 7.473 ; rX1[2]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.475      ;
+; 7.475 ; rX0[1]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.474      ;
+; 7.477 ; rX1[1]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.471      ;
+; 7.477 ; rX1[3]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.471      ;
+; 7.477 ; rX1[2]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.471      ;
+; 7.478 ; rX0[2]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.471      ;
+; 7.479 ; rX1[4]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.469      ;
+; 7.482 ; rX0[2]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.467      ;
+; 7.483 ; rX1[4]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.465      ;
+; 7.506 ; rX0[5]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.443      ;
+; 7.521 ; rX0[5]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.428      ;
+; 7.524 ; rX0[0]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.425      ;
+; 7.528 ; rX1[0]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.420      ;
+; 7.532 ; rX1[0]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.416      ;
+; 7.533 ; rX0[4]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.416      ;
+; 7.537 ; rX0[4]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.412      ;
+; 7.541 ; rX1[3]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.407      ;
+; 7.542 ; rX0[3]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.407      ;
+; 7.545 ; rX1[3]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.403      ;
+; 7.547 ; rX1[4]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.401      ;
+; 7.551 ; rX1[4]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.397      ;
+; 7.569 ; rX0[5]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.380      ;
+; 7.584 ; rX1[1]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.364      ;
+; 7.584 ; rX1[2]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.364      ;
+; 7.588 ; rX0[1]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.361      ;
+; 7.589 ; rX0[2]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.360      ;
+; 7.601 ; rX0[4]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.348      ;
+; 7.605 ; rX0[4]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.344      ;
+; 7.622 ; rX1[5]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.326      ;
+; 7.624 ; rX1[6]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.324      ;
+; 7.630 ; rX0[1]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.319      ;
+; 7.632 ; rX1[5]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.316      ;
+; 7.637 ; rX0[0]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.312      ;
+; 7.639 ; rX1[0]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.309      ;
+; 7.652 ; rX1[3]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.296      ;
+; 7.658 ; rX1[4]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.290      ;
+; 7.679 ; rX0[0]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.270      ;
+; 7.689 ; rX0[5]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.260      ;
+; 7.692 ; rX1[7]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.256      ;
+; 7.692 ; rX0[7]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.257      ;
+; 7.692 ; rX1[6]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.256      ;
+; 7.696 ; rX1[5]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.252      ;
+; 7.699 ; rX1[1]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.249      ;
+; 7.699 ; rX1[2]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.249      ;
+; 7.700 ; rX1[5]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.248      ;
+; 7.738 ; rX0[2]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.211      ;
+; 7.739 ; rX0[6]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.210      ;
+; 7.740 ; rX1[6]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.208      ;
+; 7.741 ; rX1[1]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.207      ;
+; 7.741 ; rX1[2]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.207      ;
+; 7.747 ; rX0[0]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.202      ;
+; 7.752 ; rX0[6]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.197      ;
+; 7.754 ; rX1[0]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.194      ;
+; 7.774 ; rX0[3]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.175      ;
+; 7.796 ; rX1[0]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.152      ;
+; 7.820 ; rX1[1]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.128      ;
+; 7.827 ; rX1[0]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.121      ;
+; 7.836 ; rX0[4]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.113      ;
+; 7.847 ; rX1[3]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.101      ;
+; 7.849 ; rX1[7]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.099      ;
+; 7.859 ; rX1[6]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.089      ;
+; 7.864 ; rX0[7]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.085      ;
+; 7.869 ; rX0[1]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.080      ;
+; 7.890 ; rX1[4]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 2.058      ;
+; 7.926 ; rX0[2]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.023      ;
+; 7.930 ; rX0[0]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.019      ;
+; 7.933 ; rX0[6]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 2.016      ;
+; 7.949 ; rX1[5]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 1.999      ;
+; 7.974 ; rX0[5]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 1.975      ;
+; 7.980 ; rX1[2]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 1.968      ;
+; 8.031 ; rX1[3]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 1.917      ;
+; 8.038 ; rX1[7]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 1.910      ;
+; 8.053 ; rX0[6]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 1.896      ;
+; 8.053 ; rX1[1]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 1.895      ;
+; 8.064 ; rX1[0]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 1.884      ;
+; 8.068 ; rX0[4]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 1.881      ;
+; 8.144 ; rX1[6]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.039     ; 1.804      ;
+; 8.155 ; rX0[0]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 10.000       ; -0.038     ; 1.794      ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'iClkFast'                                                                       ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node           ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+; 0.263 ; rX0[6]    ; rX1[6]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 0.390      ;
+; 0.265 ; rX1[3]    ; rX2[3]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.391      ;
+; 0.272 ; rX1[5]    ; rX2[5]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.398      ;
+; 0.272 ; rX0[3]    ; rX1[3]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 0.399      ;
+; 0.273 ; rX0[1]    ; rX1[1]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 0.400      ;
+; 0.274 ; rX0[2]    ; rX1[2]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 0.401      ;
+; 0.331 ; rX0[5]    ; rX1[5]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 0.458      ;
+; 0.337 ; rX1[2]    ; rX2[2]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.463      ;
+; 0.350 ; rX1[1]    ; rX2[1]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.476      ;
+; 0.350 ; rX1[0]    ; rX2[0]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.476      ;
+; 0.351 ; rX0[4]    ; rX1[4]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 0.478      ;
+; 0.353 ; rX0[0]    ; rX1[0]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 0.480      ;
+; 0.355 ; rX2[1]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.481      ;
+; 0.360 ; rX1[6]    ; rX2[6]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.486      ;
+; 0.372 ; rX2[5]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.498      ;
+; 0.390 ; rX1[0]    ; oDataOut[0]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.516      ;
+; 0.437 ; rX1[7]    ; rX2[7]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.563      ;
+; 0.439 ; rX1[4]    ; rX2[4]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.565      ;
+; 0.452 ; rX2[4]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.578      ;
+; 0.456 ; rX2[0]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.582      ;
+; 0.463 ; rX2[6]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.589      ;
+; 0.471 ; rX2[3]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.597      ;
+; 0.482 ; rX2[7]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.608      ;
+; 0.485 ; rX2[2]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.611      ;
+; 0.503 ; rX2[1]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.629      ;
+; 0.520 ; rX2[5]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.646      ;
+; 0.542 ; rX1[0]    ; oDataOut[1]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.668      ;
+; 0.566 ; rX2[1]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.692      ;
+; 0.569 ; rX2[1]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.695      ;
+; 0.583 ; rX2[5]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.709      ;
+; 0.586 ; rX2[5]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.712      ;
+; 0.609 ; rX2[0]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.735      ;
+; 0.611 ; rX2[4]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.737      ;
+; 0.612 ; rX2[0]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.738      ;
+; 0.614 ; rX2[4]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.740      ;
+; 0.619 ; rX2[3]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.745      ;
+; 0.622 ; rX2[6]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.748      ;
+; 0.625 ; rX2[6]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.751      ;
+; 0.629 ; rX1[1]    ; oDataOut[1]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.755      ;
+; 0.630 ; rX2[7]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.756      ;
+; 0.632 ; rX2[1]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.758      ;
+; 0.635 ; rX2[1]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.761      ;
+; 0.644 ; rX2[2]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.770      ;
+; 0.647 ; rX2[2]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.773      ;
+; 0.649 ; rX2[5]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.775      ;
+; 0.675 ; rX2[0]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.801      ;
+; 0.677 ; rX2[4]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.803      ;
+; 0.678 ; rX2[0]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.804      ;
+; 0.680 ; rX2[4]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.806      ;
+; 0.682 ; rX2[3]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.808      ;
+; 0.685 ; rX2[3]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.811      ;
+; 0.688 ; rX2[6]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.814      ;
+; 0.693 ; rX2[7]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.819      ;
+; 0.698 ; rX2[1]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.824      ;
+; 0.701 ; rX2[1]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.827      ;
+; 0.702 ; rX0[7]    ; rX1[7]            ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 0.829      ;
+; 0.710 ; rX2[2]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.836      ;
+; 0.713 ; rX2[2]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.839      ;
+; 0.739 ; rX0[0]    ; oDataOut[1]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.044      ; 0.867      ;
+; 0.741 ; rX2[0]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.867      ;
+; 0.743 ; rX2[4]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.869      ;
+; 0.744 ; rX2[0]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.870      ;
+; 0.748 ; rX2[3]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.874      ;
+; 0.751 ; rX2[3]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.877      ;
+; 0.764 ; rX2[1]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.890      ;
+; 0.776 ; rX2[2]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.902      ;
+; 0.779 ; rX2[2]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.905      ;
+; 0.807 ; rX2[0]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.933      ;
+; 0.810 ; rX2[0]    ; oDataOut[10]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.936      ;
+; 0.814 ; rX2[3]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.940      ;
+; 0.842 ; rX2[2]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.968      ;
+; 0.868 ; rX1[0]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 0.995      ;
+; 0.873 ; rX2[0]    ; oDataOut[11]~reg0 ; iClkFast     ; iClkFast    ; 0.000        ; 0.042      ; 0.999      ;
+; 0.941 ; rX1[0]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.068      ;
+; 0.943 ; rX1[0]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.070      ;
+; 0.952 ; rX1[4]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.079      ;
+; 0.953 ; rX1[7]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.080      ;
+; 0.957 ; rX1[3]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.084      ;
+; 0.960 ; rX1[5]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.087      ;
+; 0.961 ; rX1[2]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.088      ;
+; 0.962 ; rX1[1]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.089      ;
+; 0.971 ; rX1[2]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.098      ;
+; 0.972 ; rX1[3]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.099      ;
+; 0.993 ; rX1[0]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.120      ;
+; 1.033 ; rX0[1]    ; oDataOut[2]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.045      ; 1.162      ;
+; 1.038 ; rX1[6]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.165      ;
+; 1.038 ; rX1[5]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.165      ;
+; 1.042 ; rX1[4]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.169      ;
+; 1.043 ; rX0[7]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.045      ; 1.172      ;
+; 1.052 ; rX0[4]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.045      ; 1.181      ;
+; 1.062 ; rX0[3]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.045      ; 1.191      ;
+; 1.068 ; rX0[2]    ; oDataOut[3]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.045      ; 1.197      ;
+; 1.074 ; rX1[0]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.201      ;
+; 1.084 ; rX1[7]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.211      ;
+; 1.085 ; rX1[6]    ; oDataOut[7]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.212      ;
+; 1.089 ; rX1[0]    ; oDataOut[6]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.216      ;
+; 1.098 ; rX1[7]    ; oDataOut[9]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.225      ;
+; 1.103 ; rX1[3]    ; oDataOut[5]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.230      ;
+; 1.113 ; rX1[6]    ; oDataOut[8]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.240      ;
+; 1.114 ; rX1[2]    ; oDataOut[4]~reg0  ; iClkFast     ; iClkFast    ; 0.000        ; 0.043      ; 1.241      ;
++-------+-----------+-------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++-----------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                         ;
++------------------+-------+-------+----------+---------+---------------------+
+; Clock            ; Setup ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+-------+-------+----------+---------+---------------------+
+; Worst-case Slack ; 4.471 ; 0.263 ; N/A      ; N/A     ; 4.438               ;
+;  iClkFast        ; 4.471 ; 0.263 ; N/A      ; N/A     ; 4.438               ;
+; Design-wide TNS  ; 0.0   ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
+;  iClkFast        ; 0.000 ; 0.000 ; N/A      ; N/A     ; 0.000               ;
++------------------+-------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; oDataOut[0]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oDataOut[1]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oDataOut[2]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oDataOut[3]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oDataOut[4]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oDataOut[5]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oDataOut[6]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oDataOut[7]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oDataOut[8]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oDataOut[9]   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oDataOut[10]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oDataOut[11]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oDataOut[12]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oDataOut[13]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oDataOut[14]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oDataOut[15]  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; oValidOut     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; iDataIn[0]              ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iClkFast                ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iRstN                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iValidIn                ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iDataIn[1]              ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iDataIn[2]              ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iDataIn[3]              ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iDataIn[4]              ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iDataIn[5]              ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iDataIn[6]              ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; iDataIn[7]              ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; oDataOut[0]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oDataOut[1]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oDataOut[2]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oDataOut[3]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oDataOut[4]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oDataOut[5]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oDataOut[6]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.33 V              ; -0.00467 V          ; 0.226 V                              ; 0.087 V                              ; 2.91e-09 s                  ; 2.74e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.33 V             ; -0.00467 V         ; 0.226 V                             ; 0.087 V                             ; 2.91e-09 s                 ; 2.74e-09 s                 ; Yes                       ; Yes                       ;
+; oDataOut[7]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oDataOut[8]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oDataOut[9]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oDataOut[10]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oDataOut[11]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oDataOut[12]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oDataOut[13]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-09 V                   ; 2.37 V              ; -0.00994 V          ; 0.186 V                              ; 0.028 V                              ; 4.98e-10 s                  ; 4.96e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.07e-09 V                  ; 2.37 V             ; -0.00994 V         ; 0.186 V                             ; 0.028 V                             ; 4.98e-10 s                 ; 4.96e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[14]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oDataOut[15]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; oValidOut     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.67e-09 V                   ; 2.38 V              ; -0.0485 V           ; 0.167 V                              ; 0.096 V                              ; 2.95e-10 s                  ; 2.73e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.67e-09 V                  ; 2.38 V             ; -0.0485 V          ; 0.167 V                             ; 0.096 V                             ; 2.95e-10 s                 ; 2.73e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.18e-09 V                   ; 2.38 V              ; -0.00483 V          ; 0.152 V                              ; 0.012 V                              ; 4.81e-10 s                  ; 6.29e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.18e-09 V                  ; 2.38 V             ; -0.00483 V         ; 0.152 V                             ; 0.012 V                             ; 4.81e-10 s                 ; 6.29e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; oDataOut[0]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[1]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[2]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[3]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[4]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[5]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[6]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.33 V              ; -0.00265 V          ; 0.133 V                              ; 0.056 V                              ; 3.55e-09 s                  ; 3.31e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.33 V             ; -0.00265 V         ; 0.133 V                             ; 0.056 V                             ; 3.55e-09 s                 ; 3.31e-09 s                 ; Yes                       ; Yes                       ;
+; oDataOut[7]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[8]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[9]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[10]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[11]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[12]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[13]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.67e-07 V                   ; 2.35 V              ; -0.00942 V          ; 0.116 V                              ; 0.033 V                              ; 6.66e-10 s                  ; 6.27e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.67e-07 V                  ; 2.35 V             ; -0.00942 V         ; 0.116 V                             ; 0.033 V                             ; 6.66e-10 s                 ; 6.27e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[14]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[15]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; oValidOut     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.75e-07 V                   ; 2.35 V              ; -0.0109 V           ; 0.084 V                              ; 0.027 V                              ; 4.31e-10 s                  ; 3.61e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.75e-07 V                  ; 2.35 V             ; -0.0109 V          ; 0.084 V                             ; 0.027 V                             ; 4.31e-10 s                 ; 3.61e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.15e-07 V                   ; 2.35 V              ; -0.00712 V          ; 0.093 V                              ; 0.02 V                               ; 6.21e-10 s                  ; 7.9e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 6.15e-07 V                  ; 2.35 V             ; -0.00712 V         ; 0.093 V                             ; 0.02 V                              ; 6.21e-10 s                 ; 7.9e-10 s                  ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; oDataOut[0]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[1]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[2]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[3]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[4]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[5]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[6]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.64 V              ; -0.0113 V           ; 0.208 V                              ; 0.179 V                              ; 2.38e-09 s                  ; 2.23e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.64 V             ; -0.0113 V          ; 0.208 V                             ; 0.179 V                             ; 2.38e-09 s                 ; 2.23e-09 s                 ; No                        ; Yes                       ;
+; oDataOut[7]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[8]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[9]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[10]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[11]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[12]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[13]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.71 V              ; -0.0317 V           ; 0.148 V                              ; 0.064 V                              ; 4.51e-10 s                  ; 4.15e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.71 V             ; -0.0317 V          ; 0.148 V                             ; 0.064 V                             ; 4.51e-10 s                 ; 4.15e-10 s                 ; No                        ; Yes                       ;
+; oDataOut[14]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oDataOut[15]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; oValidOut     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.74 V              ; -0.06 V             ; 0.158 V                              ; 0.08 V                               ; 2.68e-10 s                  ; 2.19e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.74 V             ; -0.06 V            ; 0.158 V                             ; 0.08 V                              ; 2.68e-10 s                 ; 2.19e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.54e-08 V                   ; 2.7 V               ; -0.00943 V          ; 0.276 V                              ; 0.035 V                              ; 3.19e-10 s                  ; 4.99e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.54e-08 V                  ; 2.7 V              ; -0.00943 V         ; 0.276 V                             ; 0.035 V                             ; 3.19e-10 s                 ; 4.99e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; iClkFast   ; iClkFast ; 2810     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; iClkFast   ; iClkFast ; 2810     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 10    ; 10   ;
+; Unconstrained Input Port Paths  ; 150   ; 150  ;
+; Unconstrained Output Ports      ; 13    ; 13   ;
+; Unconstrained Output Port Paths ; 13    ; 13   ;
++---------------------------------+-------+------+
+
+
++------------------------------------------+
+; Clock Status Summary                     ;
++----------+----------+------+-------------+
+; Target   ; Clock    ; Type ; Status      ;
++----------+----------+------+-------------+
+; iClkFast ; iClkFast ; Base ; Constrained ;
++----------+----------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; iDataIn[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iDataIn[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iDataIn[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iDataIn[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iDataIn[4] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iDataIn[5] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iDataIn[6] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iDataIn[7] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iRstN      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iValidIn   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                           ;
++--------------+---------------------------------------------------------------------------------------+
+; Output Port  ; Comment                                                                               ;
++--------------+---------------------------------------------------------------------------------------+
+; oDataOut[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[8]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[9]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[10] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[11] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oValidOut    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; iDataIn[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iDataIn[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iDataIn[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iDataIn[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iDataIn[4] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iDataIn[5] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iDataIn[6] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iDataIn[7] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iRstN      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; iValidIn   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                           ;
++--------------+---------------------------------------------------------------------------------------+
+; Output Port  ; Comment                                                                               ;
++--------------+---------------------------------------------------------------------------------------+
+; oDataOut[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[8]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[9]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[10] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oDataOut[11] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; oValidOut    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Processing started: Fri Jun 26 21:31:38 2026
+Info: Command: quartus_sta FIR_Filter -c FIR_Filter
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (332104): Reading SDC File: 'FIR_Filter.sdc'
+Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Info (332146): Worst-case setup slack is 4.471
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     4.471               0.000 iClkFast 
+Info (332146): Worst-case hold slack is 0.606
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.606               0.000 iClkFast 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 4.756
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     4.756               0.000 iClkFast 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info (332146): Worst-case setup slack is 5.033
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     5.033               0.000 iClkFast 
+Info (332146): Worst-case hold slack is 0.558
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.558               0.000 iClkFast 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 4.777
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     4.777               0.000 iClkFast 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info (332146): Worst-case setup slack is 7.296
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     7.296               0.000 iClkFast 
+Info (332146): Worst-case hold slack is 0.263
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.263               0.000 iClkFast 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 4.438
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     4.438               0.000 iClkFast 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 2102082 megabytes
+    Info: Processing ended: Fri Jun 26 21:31:39 2026
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

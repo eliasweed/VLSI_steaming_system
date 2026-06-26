@@ -1,0 +1,59 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/sim
+vFIR_Filter
+Z0 !s110 1782497878
+!i10b 1
+!s100 gJEKEAQVoW3YPdb69JYJ71
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IB6aHaekj7EzhFLi[?gD^=1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/sim
+Z4 w1782073115
+8C:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/rtl/FIR_Filter.v
+FC:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/rtl/FIR_Filter.v
+!i122 0
+L0 14 69
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1782497878.000000
+!s107 C:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/rtl/FIR_Filter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/rtl/FIR_Filter.v|
+!i113 1
+Z7 o-work work
+Z8 tCvgOpt 0
+n@f@i@r_@filter
+vFIR_Filter_TB
+R0
+!i10b 1
+!s100 n4FlcZMbcQC8OLUkkgce@0
+R1
+IlSdOFZHj8:3aXzO5o;c>F0
+R2
+R3
+R4
+8C:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/rtl/FIR_Filter_TB.v
+FC:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/rtl/FIR_Filter_TB.v
+!i122 1
+L0 13 113
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/rtl/FIR_Filter_TB.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/rtl/FIR_Filter_TB.v|
+!i113 1
+R7
+R8
+n@f@i@r_@filter_@t@b
