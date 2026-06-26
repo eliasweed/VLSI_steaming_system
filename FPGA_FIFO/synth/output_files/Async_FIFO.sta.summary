@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'iWClk'
+Slack : -1.960
+TNS   : -37.431
+
+Type  : Slow 1200mV 85C Model Setup 'iRClk'
+Slack : -1.794
+TNS   : -13.115
+
+Type  : Slow 1200mV 85C Model Hold 'iWClk'
+Slack : 0.369
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'iRClk'
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'iWClk'
+Slack : -3.000
+TNS   : -57.339
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'iRClk'
+Slack : -3.000
+TNS   : -32.678
+
+Type  : Slow 1200mV 0C Model Setup 'iWClk'
+Slack : -1.686
+TNS   : -30.843
+
+Type  : Slow 1200mV 0C Model Setup 'iRClk'
+Slack : -1.533
+TNS   : -10.186
+
+Type  : Slow 1200mV 0C Model Hold 'iWClk'
+Slack : 0.338
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'iRClk'
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'iWClk'
+Slack : -3.000
+TNS   : -57.207
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'iRClk'
+Slack : -3.000
+TNS   : -32.634
+
+Type  : Fast 1200mV 0C Model Setup 'iWClk'
+Slack : -0.430
+TNS   : -2.186
+
+Type  : Fast 1200mV 0C Model Setup 'iRClk'
+Slack : -0.357
+TNS   : -0.815
+
+Type  : Fast 1200mV 0C Model Hold 'iWClk'
+Slack : 0.128
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'iRClk'
+Slack : 0.182
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'iWClk'
+Slack : -3.000
+TNS   : -45.019
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'iRClk'
+Slack : -3.000
+TNS   : -26.420
+
+------------------------------------------------------------

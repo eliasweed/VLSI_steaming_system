@@ -1,0 +1,169 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "oData[0]",
+					"strict" : false
+				},
+				{
+					"name" : "oData[1]",
+					"strict" : false
+				},
+				{
+					"name" : "oData[2]",
+					"strict" : false
+				},
+				{
+					"name" : "oData[3]",
+					"strict" : false
+				},
+				{
+					"name" : "oData[4]",
+					"strict" : false
+				},
+				{
+					"name" : "oData[5]",
+					"strict" : false
+				},
+				{
+					"name" : "oData[6]",
+					"strict" : false
+				},
+				{
+					"name" : "oData[7]",
+					"strict" : false
+				},
+				{
+					"name" : "oData[8]",
+					"strict" : false
+				},
+				{
+					"name" : "oData[9]",
+					"strict" : false
+				},
+				{
+					"name" : "oData[10]",
+					"strict" : false
+				},
+				{
+					"name" : "oData[11]",
+					"strict" : false
+				},
+				{
+					"name" : "oData[12]",
+					"strict" : false
+				},
+				{
+					"name" : "oData[13]",
+					"strict" : false
+				},
+				{
+					"name" : "oData[14]",
+					"strict" : false
+				},
+				{
+					"name" : "oData[15]",
+					"strict" : false
+				},
+				{
+					"name" : "oFull",
+					"strict" : false
+				},
+				{
+					"name" : "oEmpty",
+					"strict" : false
+				},
+				{
+					"name" : "iWInc",
+					"strict" : false
+				},
+				{
+					"name" : "iWClk",
+					"strict" : false
+				},
+				{
+					"name" : "iRClk",
+					"strict" : false
+				},
+				{
+					"name" : "iData[0]",
+					"strict" : false
+				},
+				{
+					"name" : "iRInc",
+					"strict" : false
+				},
+				{
+					"name" : "iRRstN",
+					"strict" : false
+				},
+				{
+					"name" : "iData[1]",
+					"strict" : false
+				},
+				{
+					"name" : "iData[2]",
+					"strict" : false
+				},
+				{
+					"name" : "iData[3]",
+					"strict" : false
+				},
+				{
+					"name" : "iData[4]",
+					"strict" : false
+				},
+				{
+					"name" : "iData[5]",
+					"strict" : false
+				},
+				{
+					"name" : "iData[6]",
+					"strict" : false
+				},
+				{
+					"name" : "iData[7]",
+					"strict" : false
+				},
+				{
+					"name" : "iData[8]",
+					"strict" : false
+				},
+				{
+					"name" : "iData[9]",
+					"strict" : false
+				},
+				{
+					"name" : "iData[10]",
+					"strict" : false
+				},
+				{
+					"name" : "iData[11]",
+					"strict" : false
+				},
+				{
+					"name" : "iData[12]",
+					"strict" : false
+				},
+				{
+					"name" : "iData[13]",
+					"strict" : false
+				},
+				{
+					"name" : "iData[14]",
+					"strict" : false
+				},
+				{
+					"name" : "iData[15]",
+					"strict" : false
+				},
+				{
+					"name" : "iWRstN",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

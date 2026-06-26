@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Fri Jun 26 23:44:09 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : Async_FIFO
+Top-level Entity Name : Async_FIFO
+Family : Cyclone IV E
+Device : EP4CE115F29C7
+Power Models : Final
+Total Thermal Power Dissipation : 145.41 mW
+Core Dynamic Thermal Power Dissipation : 5.23 mW
+Core Static Thermal Power Dissipation : 98.51 mW
+I/O Thermal Power Dissipation : 41.67 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

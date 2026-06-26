@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Jun 26 23:43:13 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : Async_FIFO
+Top-level Entity Name : Async_FIFO
+Family : Cyclone IV E
+Total logic elements : 83
+    Total combinational functions : 46
+    Dedicated logic registers : 57
+Total registers : 57
+Total pins : 40
+Total virtual pins : 0
+Total memory bits : 256
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

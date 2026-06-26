@@ -1,5 +1,5 @@
 Power Analyzer report for FIR_Filter
-Fri Jun 26 21:31:37 2026
+Fri Jun 26 23:05:17 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -50,22 +50,22 @@ on the Quartus Prime software download page.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 8           ;
+; Number detected on machine ; 6           ;
+; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
-; Maximum used               ; 8           ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;   0.1%      ;
+;     Processors 2-6         ;   0.1%      ;
 +----------------------------+-------------+
 
 
 +-------------------------------------------------------------------------------------------+
 ; Power Analyzer Summary                                                                    ;
 +----------------------------------------+--------------------------------------------------+
-; Power Analyzer Status                  ; Successful - Fri Jun 26 21:31:37 2026            ;
+; Power Analyzer Status                  ; Successful - Fri Jun 26 23:05:17 2026            ;
 ; Quartus Prime Version                  ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition  ;
 ; Revision Name                          ; FIR_Filter                                       ;
 ; Top-level Entity Name                  ; FIR_Filter                                       ;
@@ -264,7 +264,7 @@ on the Quartus Prime software download page.
 Info: *******************************************************************
 Info: Running Quartus Prime Power Analyzer
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Fri Jun 26 21:31:33 2026
+    Info: Processing started: Fri Jun 26 23:05:03 2026
 Info: Command: quartus_pow --read_settings_files=off --write_settings_files=off FIR_Filter -c FIR_Filter
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (21077): Low junction temperature is 0 degrees C
@@ -281,9 +281,9 @@ Info (334004): Delay annotation completed successfully
 Info (215049): Average toggle rate for this design is 8.876 millions of transitions / sec
 Info (215031): Total thermal power estimate for the design is 141.34 mW
 Info: Quartus Prime Power Analyzer was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 2102293 megabytes
-    Info: Processing ended: Fri Jun 26 21:31:37 2026
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Peak virtual memory: 5136 megabytes
+    Info: Processing ended: Fri Jun 26 23:05:17 2026
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:05
 
 

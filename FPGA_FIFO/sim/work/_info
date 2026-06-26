@@ -1,0 +1,59 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/Git/VLSI_steaming_system/FPGA_FIR_Filter/sim
+vAsync_FIFO
+Z0 !s110 1782504978
+!i10b 1
+!s100 eh7ea^U4LRMoNgEF9AMlh0
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I^8U8Ba=6;KIm<jmn>GLjA2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dD:/Git/VLSI_steaming_system/FPGA_FIFO/sim
+w1782069435
+8D:/Git/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO.v
+FD:/Git/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO.v
+!i122 0
+L0 22 152
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1782504978.000000
+!s107 D:/Git/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Git/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+n@async_@f@i@f@o
+vAsync_FIFO_TB
+R0
+!i10b 1
+!s100 H^4O=LRBDYVlIGHlJ^INP3
+R1
+Ij;>9CFKFPdhGD6IPDAYoR0
+R2
+R3
+w1782069514
+8D:/Git/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO_TB.v
+FD:/Git/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO_TB.v
+!i122 1
+L0 13 125
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/Git/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO_TB.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/Git/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO_TB.v|
+!i113 1
+R6
+R7
+n@async_@f@i@f@o_@t@b

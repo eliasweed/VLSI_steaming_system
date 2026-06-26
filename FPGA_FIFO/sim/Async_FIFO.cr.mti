@@ -1,0 +1,15 @@
+D:/Git/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO.v {1 {vlog -work work -stats=none D:/Git/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Async_FIFO
+
+Top level modules:
+	Async_FIFO
+
+} {} {}} D:/Git/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO_TB.v {1 {vlog -work work -stats=none D:/Git/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO_TB.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Async_FIFO_TB
+
+Top level modules:
+	Async_FIFO_TB
+
+} {} {}}

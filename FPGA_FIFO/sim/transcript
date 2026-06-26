@@ -1,0 +1,71 @@
+# Compile of Async_FIFO.v was successful.
+# Compile of Async_FIFO_TB.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.Async_FIFO_TB
+# vsim -gui work.Async_FIFO_TB 
+# Start time: 23:16:41 on Jun 26,2026
+# Loading work.Async_FIFO_TB
+# Loading work.Async_FIFO
+add wave -position end  sim:/Async_FIFO_TB/iData
+add wave -position end  sim:/Async_FIFO_TB/Idx
+add wave -position end  sim:/Async_FIFO_TB/iRClk
+add wave -position end  sim:/Async_FIFO_TB/iRInc
+add wave -position end  sim:/Async_FIFO_TB/iRRstN
+add wave -position end  sim:/Async_FIFO_TB/iWClk
+add wave -position end  sim:/Async_FIFO_TB/iWInc
+add wave -position end  sim:/Async_FIFO_TB/iWRstN
+add wave -position end  sim:/Async_FIFO_TB/oData
+add wave -position end  sim:/Async_FIFO_TB/oEmpty
+add wave -position end  sim:/Async_FIFO_TB/oFull
+run -all
+# ----------------------------------------
+# Test 1: Write until FULL
+# ----------------------------------------
+# [Write Domain] Wrote data: 0
+# [Write Domain] Wrote data: 10
+# [Write Domain] Wrote data: 20
+# [Write Domain] Wrote data: 30
+# [Write Domain] Wrote data: 40
+# [Write Domain] Wrote data: 50
+# [Write Domain] Wrote data: 60
+# [Write Domain] Wrote data: 70
+# [Write Domain] Wrote data: 80
+# [Write Domain] Wrote data: 90
+# [Write Domain] Wrote data: 100
+# [Write Domain] Wrote data: 110
+# [Write Domain] Wrote data: 120
+# [Write Domain] Wrote data: 130
+# [Write Domain] Wrote data: 140
+# [Write Domain] Wrote data: 150
+# [Write Domain] FIFO is FULL. Write blocked.
+# [Write Domain] FIFO is FULL. Write blocked.
+# ----------------------------------------
+# Test 2: Read until EMPTY
+# ----------------------------------------
+# [Read Domain] Read data: 0
+# [Read Domain] Read data: 10
+# [Read Domain] Read data: 20
+# [Read Domain] Read data: 30
+# [Read Domain] Read data: 40
+# [Read Domain] Read data: 50
+# [Read Domain] Read data: 60
+# [Read Domain] Read data: 70
+# [Read Domain] Read data: 80
+# [Read Domain] Read data: 90
+# [Read Domain] Read data: 100
+# [Read Domain] Read data: 110
+# [Read Domain] Read data: 120
+# [Read Domain] Read data: 130
+# [Read Domain] Read data: 140
+# [Read Domain] Read data: 150
+# [Read Domain] FIFO is EMPTY. Read blocked.
+# [Read Domain] FIFO is EMPTY. Read blocked.
+# ----------------------------------------
+# Testbench Completed Successfully!
+# ----------------------------------------
+# ** Note: $finish    : D:/Git/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO_TB.v(134)
+#    Time: 825 ns  Iteration: 0  Instance: /Async_FIFO_TB
+# 1
+# Break in Module Async_FIFO_TB at D:/Git/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO_TB.v line 134
+# End time: 23:47:13 on Jun 26,2026, Elapsed time: 0:30:32
+# Errors: 0, Warnings: 5
