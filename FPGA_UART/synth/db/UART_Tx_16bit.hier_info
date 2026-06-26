@@ -40,9 +40,9 @@ iFifoData[12] => rTxShift.DATAB
 iFifoData[13] => rTxShift.DATAB
 iFifoData[14] => rTxShift.DATAB
 iFifoData[15] => rTxShift.DATAB
-oFifoRinc << oFifoRinc~reg0.DB_MAX_OUTPUT_PORT_TYPE
-oSerialTx << oSerialTx~reg0.DB_MAX_OUTPUT_PORT_TYPE
-oBusyTx << oBusyTx~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oFifoRinc <= oFifoRinc~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oSerialTx <= oSerialTx~reg0.DB_MAX_OUTPUT_PORT_TYPE
+oBusyTx <= oBusyTx~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |UART_Tx_16bit|Baud_Clk_Divider_50:u_Baud_Clk_Divider_50

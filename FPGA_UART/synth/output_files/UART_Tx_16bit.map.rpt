@@ -1,5 +1,5 @@
 Analysis & Synthesis report for UART_Tx_16bit
-Fri Jun 26 15:39:33 2026
+Fri Jun 26 16:06:06 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -49,7 +49,7 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun 26 15:39:33 2026           ;
+; Analysis & Synthesis Status        ; Successful - Fri Jun 26 16:06:06 2026           ;
 ; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                      ; UART_Tx_16bit                                   ;
 ; Top-level Entity Name              ; UART_Tx_16bit                                   ;
@@ -343,7 +343,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Fri Jun 26 15:39:27 2026
+    Info: Processing started: Fri Jun 26 16:06:00 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off UART_Tx_16bit -c UART_Tx_16bit
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -366,8 +366,8 @@ Info (21057): Implemented 90 device resources after synthesis - the final resour
     Info (21061): Implemented 68 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
     Info: Peak virtual memory: 2101980 megabytes
-    Info: Processing ended: Fri Jun 26 15:39:33 2026
+    Info: Processing ended: Fri Jun 26 16:06:06 2026
     Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:12
+    Info: Total CPU time (on all processors): 00:00:13
 
 
