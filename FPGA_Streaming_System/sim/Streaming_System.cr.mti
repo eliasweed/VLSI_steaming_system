@@ -1,0 +1,50 @@
+C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v {1 {vlog -work work -stats=none C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Baud_Clk_Divider_50
+
+Top level modules:
+	Baud_Clk_Divider_50
+
+} {} {}} C:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/rtl/FIR_Filter.v {1 {vlog -work work -stats=none C:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/rtl/FIR_Filter.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module FIR_Filter
+
+Top level modules:
+	FIR_Filter
+
+} {} {}} C:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/Streaming_System.v {1 {vlog -work work -stats=none C:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/Streaming_System.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Streaming_System
+
+Top level modules:
+	Streaming_System
+
+} {} {}} C:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/UART_Tx_16bit.v {1 {vlog -work work -stats=none C:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/UART_Tx_16bit.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module UART_Tx_16bit
+
+Top level modules:
+	UART_Tx_16bit
+
+} {} {}} C:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/Power_Controller.v {1 {vlog -work work -stats=none C:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/Power_Controller.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Power_Controller
+
+Top level modules:
+	Power_Controller
+
+} {} {}} C:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/TB_Streaming_System.v {1 {vlog -work work -stats=none C:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/TB_Streaming_System.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module TB_Streaming_System
+
+Top level modules:
+	TB_Streaming_System
+
+} {} {}} C:/Git/Projects/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO.v {1 {vlog -work work -stats=none C:/Git/Projects/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Async_FIFO
+
+Top level modules:
+	Async_FIFO
+
+} {} {}}

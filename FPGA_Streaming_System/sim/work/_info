@@ -1,0 +1,179 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/sim
+vAsync_FIFO
+Z0 !s110 1782582787
+!i10b 1
+!s100 eh7ea^U4LRMoNgEF9AMlh0
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I:mYl;a]Q?BG]cN4NJ2NkN0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/sim
+w1782576165
+8C:/Git/Projects/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO.v
+FC:/Git/Projects/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO.v
+!i122 27
+L0 22 152
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1782582787.000000
+!s107 C:/Git/Projects/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Git/Projects/VLSI_steaming_system/FPGA_FIFO/rtl/Async_FIFO.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+n@async_@f@i@f@o
+vBaud_Clk_Divider_50
+R0
+!i10b 1
+!s100 VnnCGPhbWIVfWboXD?_zU1
+R1
+I8T=3ec8Rd5e2:9GTQ_ZB_2
+R2
+R3
+w1782068769
+8C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v
+FC:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v
+!i122 28
+L0 27 72
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Git/Projects/VLSI_steaming_system/FPGA_Clk_Div/rtl/Baud_Clk_Divider_50.v|
+!i113 1
+R6
+R7
+n@baud_@clk_@divider_50
+vFIR_Filter
+R0
+!i10b 1
+!s100 9;X5?Sh2JPDEPd;X?71N_0
+R1
+IXMOG76fhLzimI:bez<z@N3
+R2
+R3
+w1782582773
+8C:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/rtl/FIR_Filter.v
+FC:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/rtl/FIR_Filter.v
+!i122 25
+L0 19 88
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/rtl/FIR_Filter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Git/Projects/VLSI_steaming_system/FPGA_FIR_Filter/rtl/FIR_Filter.v|
+!i113 1
+R6
+R7
+n@f@i@r_@filter
+vPower_Controller
+R0
+!i10b 1
+!s100 5Yl?Qi;ggeTlSKZoIXIFH2
+R1
+IDJSU5JWmQjGIc_Ne6:9V<1
+R2
+R3
+w1782493659
+8C:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/Power_Controller.v
+FC:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/Power_Controller.v
+!i122 26
+L0 18 123
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/Power_Controller.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Git/Projects/VLSI_steaming_system/FPGA_Power_Controller/rtl/Power_Controller.v|
+!i113 1
+R6
+R7
+n@power_@controller
+vStreaming_System
+R0
+!i10b 1
+!s100 H5k]NP42joX5;[`n^zH0M1
+R1
+I?jcHE72X:E<R5jcockZem1
+R2
+R3
+w1782577893
+8C:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/Streaming_System.v
+FC:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/Streaming_System.v
+!i122 22
+L0 25 133
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/Streaming_System.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/Streaming_System.v|
+!i113 1
+R6
+R7
+n@streaming_@system
+vTB_Streaming_System
+R0
+!i10b 1
+!s100 aUT@@>90J66ACK<=1KHD=0
+R1
+IX=X]OkBcGWccCmif;zB?h2
+R2
+R3
+w1782578412
+8C:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/TB_Streaming_System.v
+FC:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/TB_Streaming_System.v
+!i122 23
+L0 27 199
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/TB_Streaming_System.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/TB_Streaming_System.v|
+!i113 1
+R6
+R7
+n@t@b_@streaming_@system
+vUART_Tx_16bit
+R0
+!i10b 1
+!s100 ZOLJWFL=nC95@TZ0J2co@2
+R1
+I0D@gV95VPjjfB1lZ9z>n23
+R2
+R3
+w1782479137
+8C:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/UART_Tx_16bit.v
+FC:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/UART_Tx_16bit.v
+!i122 24
+L0 23 174
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/UART_Tx_16bit.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Git/Projects/VLSI_steaming_system/FPGA_UART/rtl/UART_Tx_16bit.v|
+!i113 1
+R6
+R7
+n@u@a@r@t_@tx_16bit
