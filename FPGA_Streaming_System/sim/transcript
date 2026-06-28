@@ -1,6 +1,6 @@
 vsim -gui work.TB_Streaming_System
 # vsim -gui work.TB_Streaming_System 
-# Start time: 20:20:07 on Jun 27,2026
+# Start time: 19:16:41 on Jun 28,2026
 # Loading work.TB_Streaming_System
 # Loading work.Streaming_System
 # Loading work.Power_Controller
@@ -21,8 +21,7 @@ add wave -position end  sim:/TB_Streaming_System/oBusyTx
 add wave -position end  sim:/TB_Streaming_System/idx
 add wave -position end  sim:/TB_Streaming_System/gated_clk_count
 add wave -position end  sim:/TB_Streaming_System/fifo_read_count
-add wave -position end  sim:/TB_Streaming_System/dut/u_FIR_Filter/oDataOut
-add wave -position 10  sim:/TB_Streaming_System/dut/u_UART_Tx_16bit/u_Baud_Clk_Divider_50/oClk
+add wave -position 9  sim:/TB_Streaming_System/dut/u_UART_Tx_16bit/u_Baud_Clk_Divider_50/oClk
 run -all
 # INFO: Sending first input block at time 275000
 # INFO: Entering idle interval at time 10450000
@@ -41,142 +40,5 @@ run -all
 #    Time: 91450 ns  Iteration: 1  Instance: /TB_Streaming_System
 # 1
 # Break in Module TB_Streaming_System at C:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/TB_Streaming_System.v line 222
-# Compile of Streaming_System.v was successful.
-# Compile of TB_Streaming_System.v was successful.
-# Compile of UART_Tx_16bit.v was successful.
-# Compile of FIR_Filter.v failed with 1 errors.
-# Compile of Power_Controller.v was successful.
-# Compile of Async_FIFO.v was successful.
-# Compile of Baud_Clk_Divider_50.v was successful.
-# 7 compiles, 1 failed with 1 error.
-# Compile of Streaming_System.v was successful.
-# Compile of TB_Streaming_System.v was successful.
-# Compile of UART_Tx_16bit.v was successful.
-# Compile of FIR_Filter.v was successful.
-# Compile of Power_Controller.v was successful.
-# Compile of Async_FIFO.v was successful.
-# Compile of Baud_Clk_Divider_50.v was successful.
-# 7 compiles, 0 failed with no errors.
-vsim -gui work.TB_Streaming_System
-# End time: 20:48:24 on Jun 27,2026, Elapsed time: 0:28:17
-# Errors: 0, Warnings: 3
-# vsim -gui work.TB_Streaming_System 
-# Start time: 20:48:24 on Jun 27,2026
-# Loading work.TB_Streaming_System
-# Loading work.Streaming_System
-# Loading work.Power_Controller
-# Loading work.FIR_Filter
-# Loading work.Async_FIFO
-# Loading work.UART_Tx_16bit
-# Loading work.Baud_Clk_Divider_50
-vsim -gui work.TB_Streaming_System
-# End time: 20:49:00 on Jun 27,2026, Elapsed time: 0:00:36
-# Errors: 0, Warnings: 1
-# vsim -gui work.TB_Streaming_System 
-# Start time: 20:49:01 on Jun 27,2026
-# Loading work.TB_Streaming_System
-# Loading work.Streaming_System
-# Loading work.Power_Controller
-# Loading work.FIR_Filter
-# Loading work.Async_FIFO
-# Loading work.UART_Tx_16bit
-# Loading work.Baud_Clk_Divider_50
-add wave -position end  sim:/TB_Streaming_System/FIFO_ADDR_WIDTH_TB
-add wave -position end  sim:/TB_Streaming_System/BAUD_HALF_DIV_TB
-add wave -position end  sim:/TB_Streaming_System/IDLE_TIMEOUT_TB
-add wave -position end  sim:/TB_Streaming_System/iFastClk
-add wave -position end  sim:/TB_Streaming_System/iSlowClk
-add wave -position end  sim:/TB_Streaming_System/iResetN
-add wave -position end  sim:/TB_Streaming_System/iDataIn
-add wave -position end  sim:/TB_Streaming_System/iValidIn
-add wave -position end  sim:/TB_Streaming_System/oSerialTx
-add wave -position end  sim:/TB_Streaming_System/oBusyTx
-add wave -position end  sim:/TB_Streaming_System/idx
-add wave -position end  sim:/TB_Streaming_System/gated_clk_count
-add wave -position end  sim:/TB_Streaming_System/fifo_read_count
-add wave -position 9  sim:/TB_Streaming_System/dut/u_FIR_Filter/oDataOut
-add wave -position 10  sim:/TB_Streaming_System/dut/u_UART_Tx_16bit/u_Baud_Clk_Divider_50/oClk
-run -all
-# INFO: Sending first input block at time 275000
-# INFO: Entering idle interval at time 10450000
-# PASS : Clock enable went LOW after idle timeout. time=11246000
-# INFO: Sending second input block at time 11246000
-# PASS : Clock enable woke after second block. time=11506000
-# INFO: Final status:
-#       dut.wClkEn        = 0
-#       dut.wFifoFull     = 1
-#       dut.wFifoEmpty    = 0
-#       oBusyTx           = 1
-#       gated_clk_count   = 68
-#       fifo_read_count   = 5
-# TB_Streaming_System finished.
-# ** Note: $finish    : C:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/TB_Streaming_System.v(222)
-#    Time: 91450 ns  Iteration: 1  Instance: /TB_Streaming_System
-# 1
-# Break in Module TB_Streaming_System at C:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/TB_Streaming_System.v line 222
-# Compile of Streaming_System.v was successful.
-# Compile of TB_Streaming_System.v was successful.
-# Compile of UART_Tx_16bit.v was successful.
-# Compile of FIR_Filter.v was successful.
-# Compile of Power_Controller.v was successful.
-# Compile of Async_FIFO.v was successful.
-# Compile of Baud_Clk_Divider_50.v was successful.
-# 7 compiles, 0 failed with no errors.
-vsim -gui work.TB_Streaming_System
-# End time: 20:53:15 on Jun 27,2026, Elapsed time: 0:04:14
-# Errors: 0, Warnings: 2
-# vsim -gui work.TB_Streaming_System 
-# Start time: 20:53:15 on Jun 27,2026
-# Loading work.TB_Streaming_System
-# Loading work.Streaming_System
-# Loading work.Power_Controller
-# Loading work.FIR_Filter
-# Loading work.Async_FIFO
-# Loading work.UART_Tx_16bit
-# Loading work.Baud_Clk_Divider_50
-vsim -gui work.TB_Streaming_System
-# End time: 20:53:24 on Jun 27,2026, Elapsed time: 0:00:09
-# Errors: 0, Warnings: 1
-# vsim -gui work.TB_Streaming_System 
-# Start time: 20:53:24 on Jun 27,2026
-# Loading work.TB_Streaming_System
-# Loading work.Streaming_System
-# Loading work.Power_Controller
-# Loading work.FIR_Filter
-# Loading work.Async_FIFO
-# Loading work.UART_Tx_16bit
-# Loading work.Baud_Clk_Divider_50
-add wave -position end  sim:/TB_Streaming_System/FIFO_ADDR_WIDTH_TB
-add wave -position end  sim:/TB_Streaming_System/BAUD_HALF_DIV_TB
-add wave -position end  sim:/TB_Streaming_System/IDLE_TIMEOUT_TB
-add wave -position end  sim:/TB_Streaming_System/iFastClk
-add wave -position end  sim:/TB_Streaming_System/iSlowClk
-add wave -position end  sim:/TB_Streaming_System/iResetN
-add wave -position end  sim:/TB_Streaming_System/iDataIn
-add wave -position end  sim:/TB_Streaming_System/iValidIn
-add wave -position end  sim:/TB_Streaming_System/oSerialTx
-add wave -position end  sim:/TB_Streaming_System/oBusyTx
-add wave -position end  sim:/TB_Streaming_System/idx
-add wave -position end  sim:/TB_Streaming_System/gated_clk_count
-add wave -position end  sim:/TB_Streaming_System/fifo_read_count
-add wave -position 8  sim:/TB_Streaming_System/dut/u_FIR_Filter/oDataOut
-run -all
-# INFO: Sending first input block at time 275000
-# INFO: Entering idle interval at time 10450000
-# PASS : Clock enable went LOW after idle timeout. time=11246000
-# INFO: Sending second input block at time 11246000
-# PASS : Clock enable woke after second block. time=11506000
-# INFO: Final status:
-#       dut.wClkEn        = 0
-#       dut.wFifoFull     = 1
-#       dut.wFifoEmpty    = 0
-#       oBusyTx           = 1
-#       gated_clk_count   = 68
-#       fifo_read_count   = 5
-# TB_Streaming_System finished.
-# ** Note: $finish    : C:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/TB_Streaming_System.v(222)
-#    Time: 91450 ns  Iteration: 1  Instance: /TB_Streaming_System
-# 1
-# Break in Module TB_Streaming_System at C:/Git/Projects/VLSI_steaming_system/FPGA_Streaming_System/rtl/TB_Streaming_System.v line 222
-# End time: 20:56:36 on Jun 27,2026, Elapsed time: 0:03:12
+# End time: 19:20:10 on Jun 28,2026, Elapsed time: 0:03:29
 # Errors: 0, Warnings: 1

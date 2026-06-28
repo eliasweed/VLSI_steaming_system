@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Sun Jun 28 19:28:33 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : Streaming_System
+Top-level Entity Name : Streaming_System
+Family : Cyclone IV E
+Device : EP4CE115F29C7
+Power Models : Final
+Total Thermal Power Dissipation : 139.40 mW
+Core Dynamic Thermal Power Dissipation : 5.78 mW
+Core Static Thermal Power Dissipation : 98.49 mW
+I/O Thermal Power Dissipation : 35.13 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

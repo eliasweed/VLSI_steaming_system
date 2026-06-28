@@ -1,0 +1,65 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "oSerialTx",
+					"strict" : false
+				},
+				{
+					"name" : "oBusyTx",
+					"strict" : false
+				},
+				{
+					"name" : "iSlowClk",
+					"strict" : false
+				},
+				{
+					"name" : "iResetN",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[0]",
+					"strict" : false
+				},
+				{
+					"name" : "iValidIn",
+					"strict" : false
+				},
+				{
+					"name" : "iFastClk",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[1]",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[2]",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[3]",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[4]",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[5]",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[6]",
+					"strict" : false
+				},
+				{
+					"name" : "iDataIn[7]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Jun 28 19:28:15 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : Streaming_System
+Top-level Entity Name : Streaming_System
+Family : Cyclone IV E
+Total logic elements : 186
+    Total combinational functions : 137
+    Dedicated logic registers : 120
+Total registers : 120
+Total pins : 14
+Total virtual pins : 0
+Total memory bits : 192
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
